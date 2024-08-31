@@ -138,7 +138,7 @@
 }
 
 .nav__avatar {
-    width: 40px;
+    width: 38px;
     object-fit: contain;
     border-radius: 5px;
     cursor: pointer;
@@ -169,10 +169,7 @@
         padding-right: 40px;
     }
 
-    .nav__avatar {
-        margin-top: -5px;
-        width: 40px;
-    }
+
 }
 
 @media (max-width: 768px) {
@@ -211,10 +208,7 @@
         gap: 5px;
     }
 
-    .nav__avatar {
-        margin-top: -5px;
-        width: 32px;
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -246,14 +240,14 @@
         left: 40px;
     }
 
-    .nav__avatar {
-        margin-top: -5px;
-        width: 30px;
-    }
 
     .searchAndAvatar__container {
         padding-right: 27px;
-        gap: 5px;
+
+    }
+
+    .search__icon {
+        margin-right: 0px;
     }
 
     .search__input-container.active {
