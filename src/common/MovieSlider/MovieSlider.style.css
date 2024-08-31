@@ -1,5 +1,5 @@
 .movie__slide {
-    padding: 0px 20px 20px 20px;
+    padding: 0 20px 20px;
     position: relative;
     overflow: hidden;
 }
@@ -15,7 +15,6 @@
     overflow-x: auto;
     scroll-behavior: smooth;
     white-space: nowrap;
-    position: relative;
     touch-action: pan-y;
     cursor: grab;
 }
@@ -32,7 +31,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: initial;
+    background: none;
     border: none;
     color: white;
     font-size: 50px;
@@ -43,7 +42,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    touch-action: none;
+    pointer-events: auto;
+    /* 버튼을 클릭할 수 있게 보장 */
 }
 
 .slide__button:hover {

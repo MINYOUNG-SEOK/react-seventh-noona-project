@@ -4,10 +4,8 @@ import './MovieSlider.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-
 const MovieSlider = ({ title, data }) => {
     const slideRef = useRef(null);
-
 
     const handleLeftClick = (e) => {
         e.preventDefault();
@@ -34,21 +32,23 @@ const MovieSlider = ({ title, data }) => {
     };
 
     return (
-        <div className='movie__slide'>
-            <h1 className='movie__slide__title'>{title}</h1>
-            <button className='slide__button left'
+        <div className="movie__slide">
+            <h1 className="movie__slide__title">{title}</h1>
+            <button
+                className="slide__button left"
                 onClick={handleLeftClick}
                 onTouchStart={(e) => e.preventDefault()}
                 style={{ touchAction: 'none' }}
             >
                 <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-            <div className='slide__container' ref={slideRef}>
+            <div className="slide__container" ref={slideRef}>
                 {data.map((movie, index) => (
                     <MovieCard movie={movie} key={index} />
                 ))}
             </div>
-            <button className='slide__button right'
+            <button
+                className="slide__button right"
                 onClick={handleRightClick}
                 onTouchStart={(e) => e.preventDefault()}
                 style={{ touchAction: 'none' }}
