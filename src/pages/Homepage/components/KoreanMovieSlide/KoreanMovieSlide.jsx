@@ -1,6 +1,6 @@
 import React from 'react';
 import { useKoreanMoviesQuery } from '../../../../hooks/useKoreanMovies';
-import MovieSlide from '../MovieSlide/MovieSlide';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 
 const KoreanMovieSlide = () => {
     const { data, isLoading, isError, error } = useKoreanMoviesQuery();
@@ -11,7 +11,7 @@ const KoreanMovieSlide = () => {
         return <div>Error fetching data</div>;
     }
 
-    return <MovieSlide title="한국 영화" data={data.results} />;
+    return <MovieSlider title="한국 영화" data={data.results} />;
 };
 
 export default KoreanMovieSlide;

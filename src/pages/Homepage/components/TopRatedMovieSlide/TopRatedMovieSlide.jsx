@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTopRatedMoviesQuery } from '../../../../hooks/useTopRatedMovies'; // 경로를 정확히 확인하세요
-import MovieSlide from '../MovieSlide/MovieSlide';
+import { useTopRatedMoviesQuery } from '../../../../hooks/useTopRatedMovies';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 
 const TopRatedMovieSlide = () => {
     const { data, isLoading, isError, error } = useTopRatedMoviesQuery();
@@ -15,7 +15,7 @@ const TopRatedMovieSlide = () => {
         return <div>No movies found</div>;
     }
 
-    return <MovieSlide title="최고 평점 영화" data={data.results} />;
+    return <MovieSlider title="최고 평점 영화" data={data.results} />;
 };
 
 export default TopRatedMovieSlide;

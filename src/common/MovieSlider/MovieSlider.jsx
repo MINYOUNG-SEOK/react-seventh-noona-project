@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
-import './MovieSlide.style.css';
+import './MovieSlider.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 
-const MovieSlide = ({ title, data }) => {
+const MovieSlider = ({ title, data }) => {
     const slideRef = useRef(null);
 
 
@@ -51,4 +51,4 @@ const MovieSlide = ({ title, data }) => {
     );
 };
 
-export default MovieSlide;
+export default MovieSlider;

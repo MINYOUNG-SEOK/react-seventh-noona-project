@@ -92,7 +92,7 @@
     align-items: center;
     gap: 10px;
     margin-left: auto;
-    padding-right: 40px;
+    padding-right: 50px;
     position: relative;
 }
 
@@ -140,7 +140,6 @@
     cursor: pointer;
 }
 
-/* 반응형 디자인 */
 @media (max-width: 1024px) {
     .nav {
         padding: 0 15px;
@@ -157,7 +156,7 @@
 
 
     .searchAndAvatar__container {
-        padding-right: 30px;
+        padding-right: 40px;
     }
 }
 
@@ -200,7 +199,6 @@
 
     .searchAndAvatar__container {
         gap: 10px;
-
     }
 
     .nav__avatar {
@@ -242,7 +240,7 @@
     }
 
     .searchAndAvatar__container {
-        padding-right: 20px;
+        padding-right: 27px;
     }
 
     .search__icon {

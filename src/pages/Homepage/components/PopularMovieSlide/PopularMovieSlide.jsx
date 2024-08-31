@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
-import MovieSlide from '../MovieSlide/MovieSlide';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 
 const PopularMovieSlide = () => {
     const { data, isLoading, isError, error } = usePopularMoviesQuery();
@@ -11,7 +11,7 @@ const PopularMovieSlide = () => {
         return <div>Error fetching data</div>;
     }
 
-    return <MovieSlide title="인기있는 영화" data={data.results} />;
+    return <MovieSlider title="인기있는 영화" data={data.results} />;
 };
 
 export default PopularMovieSlide;

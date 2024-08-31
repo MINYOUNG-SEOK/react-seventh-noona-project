@@ -17,7 +17,6 @@
     white-space: nowrap;
     position: relative;
     touch-action: pan-y;
-    /* 수평 드래그 시 수직 스크롤 방지 */
     cursor: grab;
 }
 
@@ -57,7 +56,6 @@
 
 
 
-/* 반응형 디자인 */
 @media (max-width: 1024px) {
     .movie__slide__title {
         font-size: 20px;
@@ -65,9 +63,7 @@
 
     .slide__button {
         font-size: 30px;
-        /* 버튼 크기 줄이기 */
         padding: 8px;
-        /* 버튼 패딩 줄이기 */
     }
 }
 
@@ -78,7 +74,6 @@
 
     .slide__button {
         font-size: 25px;
-        /* 작은 화면에서 버튼 크기 줄이기 */
         padding: 6px;
     }
 
@@ -98,12 +93,10 @@
 
     .slide__button {
         font-size: 20px;
-        /* 모바일에서 버튼 더 작게 */
         padding: 5px;
     }
 
     .slide__container {
         gap: 5px;
-        /* 카드 간격 줄이기 */
     }
 }

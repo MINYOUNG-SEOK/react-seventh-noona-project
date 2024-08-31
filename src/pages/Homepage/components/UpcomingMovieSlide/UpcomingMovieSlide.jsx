@@ -1,7 +1,7 @@
 // UpcomingMovieSlide.js
 import React from 'react';
-import { useUpcomingMoviesQuery } from '../../../../hooks/useUpcomingMovies'; // 올바른 경로로 수정
-import MovieSlide from '../MovieSlide/MovieSlide';
+import { useUpcomingMoviesQuery } from '../../../../hooks/useUpcomingMovies';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 
 const UpcomingMovieSlide = () => {
     const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
@@ -12,7 +12,7 @@ const UpcomingMovieSlide = () => {
         return <div>Error fetching data</div>;
     }
 
-    return <MovieSlide title="개봉 예정 영화" data={data.results} />;
+    return <MovieSlider title="개봉 예정 영화" data={data.results} />;
 };
 
 export default UpcomingMovieSlide;
