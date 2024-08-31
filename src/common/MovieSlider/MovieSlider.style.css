@@ -46,7 +46,7 @@
 }
 
 .slide__button:hover {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .slide__button.left {
@@ -73,7 +73,11 @@
     }
 
     .slide__button {
-        font-size: 30px;
+        font-size: 40px;
+    }
+
+    .slide__button:hover {
+        font-size: 50px;
     }
 }
 
@@ -86,7 +90,11 @@
         font-size: 30px;
     }
 
+    .slide__button:hover {
+        font-size: 40px;
+    }
+
     .slide__container {
-        gap: 5px;
+        gap: 3px;
     }
 }
