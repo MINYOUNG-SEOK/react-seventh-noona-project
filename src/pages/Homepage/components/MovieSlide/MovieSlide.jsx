@@ -4,6 +4,7 @@ import './MovieSlide.style.css';
 
 const MovieSlide = ({ title, data }) => {
     const slideRef = useRef(null);
+    
 
     const handleLeftClick = () => {
         if (slideRef.current) {

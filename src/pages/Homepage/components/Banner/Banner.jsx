@@ -8,8 +8,25 @@ const Banner = () => {
     const { data, isLoading, error, isError } = useKoreanMoviesQuery();
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <header className='banner'>
+                <div className='banner__contents'>
+                    <div className='banner__logo'>
+                        <img src='/img/netflixN__logo.png' alt='N Logo' className='banner__nLogo' />
+                        <span className='banner__movieLabel'>영화</span>
+                    </div>
+                    <div className='skeleton skeleton__title'></div>
+                    <div className='skeleton skeleton__description'></div>
+                    <div className='banner__buttons'>
+                        <div className='skeleton skeleton__button'></div>
+                        <div className='skeleton skeleton__button'></div>
+                    </div>
+                </div>
+                <div className='banner__fadeBottom'></div>
+            </header>
+        );
     }
+
 
     if (isError) {
         console.error('Error:', error);
@@ -32,7 +49,7 @@ const Banner = () => {
         <header
             className='banner'
             style={{
-                backgroundImage: `url(${imageUrl})`,
+                backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',
             }}
         >
             <div className='banner__contents'>

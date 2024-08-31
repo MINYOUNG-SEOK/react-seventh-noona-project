@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.style.css';
 import { Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
       <div className='menu__button' onClick={() => setShowMenu(!showMenu)}>
         <div className="menu__container">
           <span className='menu__text'>메뉴</span>
-          <FontAwesomeIcon icon={faChevronDown} className='menu__icon' />
+          <FontAwesomeIcon icon={faCaretDown} className='menu__icon' />
         </div>
       </div>
 

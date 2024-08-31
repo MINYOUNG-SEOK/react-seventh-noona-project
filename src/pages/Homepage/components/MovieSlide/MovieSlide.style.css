@@ -17,6 +17,12 @@
     white-space: nowrap;
     position: relative;
     touch-action: pan-y;
+    /* 수평 드래그 시 수직 스크롤 방지 */
+    cursor: grab;
+}
+
+.slide__container:active {
+    cursor: grabbing;
 }
 
 .slide__button {

@@ -102,6 +102,57 @@
     width: 100%;
 }
 
+/* 스켈레톤 로딩 스타일 */
+.skeleton {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skeleton::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* 스켈레톤 요소 크기 */
+.skeleton__title {
+    width: 50%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.skeleton__description {
+    width: 75%;
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+.skeleton__button {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
 /* 반응형 디자인 */
 @media (max-width: 1024px) {
     .banner {
