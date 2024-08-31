@@ -41,7 +41,7 @@
 .banner__title {
     font-size: 3rem;
     font-weight: 800;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0;
 }
 
 .banner__button {
@@ -53,13 +53,10 @@
     border: none;
     font-weight: 500;
     border-radius: 0.5vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 0.5rem 2rem;
     margin-right: 1rem;
-    padding-top: 0.5rem;
     background-color: rgba(109, 109, 110, 0.7);
-    padding-bottom: 0.5rem;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .banner__icon {
@@ -70,15 +67,13 @@
 .banner__button:hover {
     color: #000;
     background-color: #e6e6e6;
-    transition: all 0.2;
-    ;
+    transition: all 0.2s;
 }
 
 .banner__description {
-    background-color: initial;
     width: 45rem;
     line-height: 1.3;
-    margin: 10px 0 20px 0;
+    margin: 10px 0 20px;
     font-size: 1rem;
     font-weight: 400;
     max-width: 360px;
@@ -91,65 +86,12 @@
 
 .banner__fadeBottom {
     height: 7.4rem;
-    background-image: linear-gradient(180deg,
-            transparent,
-            rgba(0, 0, 0, 0.9),
-            #000);
+    background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9), #000);
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-}
-
-/* 스켈레톤 로딩 스타일 */
-.skeleton {
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-}
-
-.skeleton::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-/* 스켈레톤 요소 크기 */
-.skeleton__title {
-    width: 50%;
-    height: 40px;
-    margin-bottom: 10px;
-}
-
-.skeleton__description {
-    width: 75%;
-    height: 20px;
-    margin-bottom: 20px;
-}
-
-.skeleton__button {
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    display: inline-block;
 }
 
 
@@ -204,7 +146,6 @@
 
     .banner__button {
         font-size: 15px;
-        padding: 0.7rem 1.5rem;
         border-radius: 3px;
     }
 }
@@ -234,7 +175,7 @@
 
     .banner__button {
         font-size: 13px;
-        padding: 0.6rem 0.7rem;
+        padding: 0.5rem 0.7rem;
         margin-bottom: 3px;
         border-radius: 3px;
     }

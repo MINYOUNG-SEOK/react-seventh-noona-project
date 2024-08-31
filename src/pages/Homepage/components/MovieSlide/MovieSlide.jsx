@@ -1,12 +1,17 @@
 import React, { useRef } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieSlide.style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 
 const MovieSlide = ({ title, data }) => {
     const slideRef = useRef(null);
-    
 
-    const handleLeftClick = () => {
+
+    const handleLeftClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (slideRef.current) {
             slideRef.current.scrollBy({ left: -300, behavior: 'smooth' });
             if (slideRef.current.scrollLeft <= 0) {
@@ -15,7 +20,9 @@ const MovieSlide = ({ title, data }) => {
         }
     };
 
-    const handleRightClick = () => {
+    const handleRightClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (slideRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = slideRef.current;
             if (scrollLeft + clientWidth >= scrollWidth - 10) {
@@ -29,16 +36,16 @@ const MovieSlide = ({ title, data }) => {
     return (
         <div className='movie__slide'>
             <h1 className='movie__slide__title'>{title}</h1>
-            <button className='slide__button left' onClick={handleLeftClick}>
-                &#10094;
+            <button className='slide__button left' onClick={handleLeftClick} onTouchStart={(e) => e.preventDefault()} >
+                <FontAwesomeIcon icon={faChevronLeft} className='slide__button left' />
             </button>
             <div className='slide__container' ref={slideRef}>
                 {data.map((movie, index) => (
                     <MovieCard movie={movie} key={index} />
                 ))}
             </div>
-            <button className='slide__button right' onClick={handleRightClick}>
-                &#10095;
+            <button className='slide__button right' onClick={handleRightClick} onTouchStart={(e) => e.preventDefault()} >
+                <FontAwesomeIcon icon={faChevronRight} className='slide__button Right' />
             </button>
         </div>
     );
