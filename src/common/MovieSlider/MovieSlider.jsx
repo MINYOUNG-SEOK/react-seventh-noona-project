@@ -36,16 +36,24 @@ const MovieSlider = ({ title, data }) => {
     return (
         <div className='movie__slide'>
             <h1 className='movie__slide__title'>{title}</h1>
-            <button className='slide__button left' onClick={handleLeftClick} onTouchStart={(e) => e.preventDefault()} >
-                <FontAwesomeIcon icon={faChevronLeft} className='slide__button left' />
+            <button className='slide__button left'
+                onClick={handleLeftClick}
+                onTouchStart={(e) => e.preventDefault()}
+                style={{ touchAction: 'none' }}
+            >
+                <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <div className='slide__container' ref={slideRef}>
                 {data.map((movie, index) => (
                     <MovieCard movie={movie} key={index} />
                 ))}
             </div>
-            <button className='slide__button right' onClick={handleRightClick} onTouchStart={(e) => e.preventDefault()} >
-                <FontAwesomeIcon icon={faChevronRight} className='slide__button Right' />
+            <button className='slide__button right'
+                onClick={handleRightClick}
+                onTouchStart={(e) => e.preventDefault()}
+                style={{ touchAction: 'none' }}
+            >
+                <FontAwesomeIcon icon={faChevronRight} />
             </button>
         </div>
     );
