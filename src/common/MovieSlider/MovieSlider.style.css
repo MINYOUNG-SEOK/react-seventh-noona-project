@@ -20,6 +20,10 @@
     cursor: grab;
 }
 
+.slide__container::-webkit-scrollbar {
+    display: none;
+}
+
 .slide__container:active {
     cursor: grabbing;
 }
