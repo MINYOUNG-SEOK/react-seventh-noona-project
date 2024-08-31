@@ -243,6 +243,7 @@
 
     .searchAndAvatar__container {
         padding-right: 27px;
+        gap: 2px;
     }
 
     .search__input-container.active {
