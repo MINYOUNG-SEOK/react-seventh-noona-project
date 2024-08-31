@@ -42,7 +42,7 @@
     position: absolute;
     top: 50px;
     left: 90px;
-    width: 100px;
+    width: 130px;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 15px;
     max-height: 300px;
@@ -177,6 +177,7 @@
 
     .category__area a {
         margin-bottom: 10px;
+        font-size: 13px;
     }
 
     .category__area a:last-child {
@@ -191,7 +192,7 @@
 
     .menu__text,
     .menu__icon {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .searchAndAvatar__container {
@@ -200,7 +201,7 @@
     }
 
     .nav__avatar {
-        width: 35px;
+        width: 40px;
     }
 }
 
@@ -211,19 +212,18 @@
     }
 
     .nav__logo {
-        width: 60px;
+        width: 80px;
     }
 
     .menu__button {
         display: flex;
         margin-right: 0;
         gap: 5px;
-        font-size: 9px;
     }
 
     .menu__text,
     .menu__icon {
-        font-size: 11px;
+        font-size: 13px;
     }
 
     .category__area.show {
@@ -232,7 +232,7 @@
     }
 
     .nav__avatar {
-        width: 20px;
+        width: 30px;
     }
 
     .searchAndAvatar__container {
