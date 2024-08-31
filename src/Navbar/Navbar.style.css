@@ -245,7 +245,8 @@
         padding-right: 27px;
     }
 
-    .search__icon {
-        display: none;
+    .search__input-container.active {
+        max-width: 140px;
+        /* 480px 이하일 때 검색창 너비 조정 */
     }
 }
