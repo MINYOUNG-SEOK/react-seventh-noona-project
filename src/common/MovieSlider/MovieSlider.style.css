@@ -35,7 +35,7 @@
     background-color: initial;
     border: none;
     color: white;
-    font-size: 40px;
+    font-size: 50px;
     cursor: pointer;
     z-index: 10;
     padding: 15px;
@@ -47,7 +47,7 @@
 }
 
 .slide__button:hover {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .slide__button.left {
@@ -55,7 +55,7 @@
 }
 
 .slide__button.right {
-    right: 10px;
+    right: 20px;
 }
 
 
@@ -67,7 +67,7 @@
 
     .slide__button {
         font-size: 30px;
-        padding: 8px;
+        /* padding: 8px; */
     }
 }
 
@@ -77,8 +77,8 @@
     }
 
     .slide__button {
-        font-size: 25px;
-        padding: 6px;
+        font-size: 30px;
+        /* padding: 6px; */
     }
 
     .slide__button.left {
@@ -96,8 +96,8 @@
     }
 
     .slide__button {
-        font-size: 20px;
-        padding: 5px;
+        font-size: 30px;
+        /* padding: 5px; */
     }
 
     .slide__container {
