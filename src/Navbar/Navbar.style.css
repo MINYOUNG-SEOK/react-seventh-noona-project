@@ -150,7 +150,7 @@
     }
 
     .category__area a {
-        font-size: 13px;
+        font-size: 18px;
         padding: 4px 8px;
     }
 
@@ -176,7 +176,7 @@
 
     .category__area a {
         margin-bottom: 10px;
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .category__area a:last-child {
@@ -186,11 +186,11 @@
     .menu__button {
         display: flex;
         gap: 15px;
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .menu__text {
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .menu__icon {
@@ -202,7 +202,8 @@
     }
 
     .nav__avatar {
-        width: 40px;
+        margin-top: -5px;
+        width: 32px;
     }
 }
 
@@ -223,7 +224,7 @@
     }
 
     .menu__text {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .menu__icon {
@@ -236,6 +237,7 @@
     }
 
     .nav__avatar {
+        margin-top: -5px;
         width: 30px;
     }
 
