@@ -11,7 +11,7 @@
 
 .slide__container {
     display: flex;
-    gap: 10px;
+    gap: 13px;
     overflow-x: auto;
     scroll-behavior: smooth;
     white-space: nowrap;
@@ -30,7 +30,7 @@
 
 .slide__button {
     position: absolute;
-    top: 55%;
+    top: 50%;
     transform: translateY(-50%);
     background-color: initial;
     border: none;
@@ -51,14 +51,12 @@
 }
 
 .slide__button.left {
-    left: 10px;
+    left: 5px;
 }
 
 .slide__button.right {
     right: 20px;
 }
-
-
 
 @media (max-width: 1024px) {
     .movie__slide__title {
@@ -67,7 +65,6 @@
 
     .slide__button {
         font-size: 30px;
-        /* padding: 8px; */
     }
 }
 
@@ -78,15 +75,6 @@
 
     .slide__button {
         font-size: 30px;
-        /* padding: 6px; */
-    }
-
-    .slide__button.left {
-        left: 5px;
-    }
-
-    .slide__button.right {
-        right: 5px;
     }
 }
 
@@ -97,7 +85,6 @@
 
     .slide__button {
         font-size: 30px;
-        /* padding: 5px; */
     }
 
     .slide__container {
