@@ -41,7 +41,7 @@
 .banner__title {
     font-size: 3rem;
     font-weight: 800;
-    margin: 0;
+    margin: 10px 0 0 0;
 }
 
 .banner__button {
