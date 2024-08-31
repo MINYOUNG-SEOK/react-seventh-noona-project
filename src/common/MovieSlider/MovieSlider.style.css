@@ -43,19 +43,18 @@
     align-items: center;
     justify-content: center;
     pointer-events: auto;
-    /* 버튼을 클릭할 수 있게 보장 */
 }
 
 .slide__button:hover {
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .slide__button.left {
-    left: 5px;
+    left: 0px;
 }
 
 .slide__button.right {
-    right: 20px;
+    right: 0px;
 }
 
 @media (max-width: 1024px) {
