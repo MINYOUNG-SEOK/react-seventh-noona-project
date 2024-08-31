@@ -208,6 +208,14 @@
         gap: 5px;
     }
 
+    .search__input {
+        padding: 7px;
+    }
+
+    .nav__avatar {
+        width: 33px;
+    }
+
 
 }
 
@@ -243,6 +251,7 @@
 
     .searchAndAvatar__container {
         padding-right: 27px;
+        gap: 1;
 
     }
 
@@ -252,5 +261,13 @@
 
     .search__input-container.active {
         max-width: 140px;
+    }
+
+    .search__input {
+        padding: 6px;
+    }
+
+    .nav__avatar {
+        width: 31px;
     }
 }
