@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from './components/Banner/Banner'
 import { Navbar } from 'react-bootstrap'
 import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide'
-import NowPlayingMovieSlide from './components/NowPlayingMovieSlide/NowPlayingMovieSlide'
+import KoreanMovieSlide from './components/KoreanMovieSlide/KoreanMovieSlide'
 import TopRatedMovieSlide from './components/TopRatedMovieSlide/TopRatedMovieSlide'
 import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSlide'
 
@@ -17,10 +17,11 @@ const Homepage = () => {
     <div className='Homepage'>
       <Navbar />
       <Banner />
-      {/* <NowPlayingMovieSlide /> */}
+      <KoreanMovieSlide />
+      <PopularMovieSlide />
       <UpcomingMovieSlide />
       <TopRatedMovieSlide />
-      <PopularMovieSlide />
+
     </div>
   )
 }

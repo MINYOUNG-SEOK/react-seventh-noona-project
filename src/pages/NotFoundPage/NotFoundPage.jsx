@@ -3,7 +3,7 @@ import React from 'react'
 const NotFoundPage = () => {
   return (
     <div>
-      낫 파운드 페이지
+      준비 중입니다.
     </div>
   )
 }

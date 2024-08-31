@@ -33,18 +33,58 @@
     gap: 15px;
     flex: 1;
     align-items: center;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.category__area.show {
+    display: block;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 90px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    max-height: 300px;
 }
 
 .category__area a {
+    display: block;
     color: #fff;
     text-decoration: none;
     font-size: 14px;
-    padding: 5px 10px;
+    padding: 20px 10px;
     transition: color 0.3s;
 }
 
 .category__area a:hover {
     color: #9f9f9f;
+}
+
+.menu__button {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu__container {
+    display: flex;
+    align-items: center;
+    margin-left: -15px;
+}
+
+.menu__text {
+    margin-right: 3px;
+    font-size: 16px;
+}
+
+.menu__icon {
+    font-size: 14px;
 }
 
 .searchAndAvatar__container {
@@ -111,9 +151,10 @@
     }
 
     .category__area a {
-        font-size: 13px;
+        font-size: 11.5px;
         padding: 4px 8px;
     }
+
 
     .searchAndAvatar__container {
         padding-right: 30px;
@@ -131,11 +172,31 @@
 
     .category__area {
         display: none;
+        max-height: 0;
+    }
+
+    .category__area a {
+        margin-bottom: 10px;
+    }
+
+    .category__area a:last-child {
+        margin-bottom: 0;
+    }
+
+    .menu__button {
+        display: flex;
+        gap: 5px;
+        font-size: 13px;
+    }
+
+    .menu__text,
+    .menu__icon {
+        font-size: 12px;
     }
 
     .searchAndAvatar__container {
         gap: 10px;
-        /* 작은 화면에서 아이콘과 아바타의 간격 줄임 */
+
     }
 
     .nav__avatar {
@@ -150,15 +211,35 @@
     }
 
     .nav__logo {
-        width: 80px;
+        width: 60px;
+    }
+
+    .menu__button {
+        display: flex;
+        margin-right: 0;
+        gap: 5px;
+        font-size: 9px;
+    }
+
+    .menu__text,
+    .menu__icon {
+        font-size: 11px;
+    }
+
+    .category__area.show {
+        top: 40px;
+        left: 40px;
     }
 
     .nav__avatar {
-        width: 30px;
+        width: 20px;
     }
 
     .searchAndAvatar__container {
         padding-right: 20px;
-        /* 매우 작은 화면에서도 적절한 여백 유지 */
+    }
+
+    .search__icon {
+        display: none;
     }
 }

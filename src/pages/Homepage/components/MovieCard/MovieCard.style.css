@@ -11,6 +11,7 @@
     position: relative;
     transition: transform 0.3s ease;
     cursor: pointer;
+    pointer-events: auto;
 }
 
 .movie__card:hover {
@@ -39,4 +40,25 @@
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+    .movie__card {
+        width: 180px;
+        height: 270px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie__card {
+        width: 150px;
+        height: 225px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie__card {
+        width: 120px;
+        height: 180px;
+    }
 }

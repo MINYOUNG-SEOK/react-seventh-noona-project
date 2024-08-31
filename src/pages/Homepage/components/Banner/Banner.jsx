@@ -1,11 +1,11 @@
 import React from 'react';
-import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
+import { useKoreanMoviesQuery } from '../../../../hooks/useKoreanMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import './Banner.style.css';
 
 const Banner = () => {
-    const { data, isLoading, error, isError } = usePopularMoviesQuery();
+    const { data, isLoading, error, isError } = useKoreanMoviesQuery();
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -36,7 +36,12 @@ const Banner = () => {
             }}
         >
             <div className='banner__contents'>
+                <div className='banner__logo'>
+                    <img src='/img/netflixN__logo.png' alt='N Logo' className='banner__nLogo' />
+                    <span className='banner__movieLabel'>영화</span>
+                </div>
                 <h1 className='banner__title'>{movie?.title || movie?.name || movie?.original_name}</h1>
+                <h1 className='banner__description'>{movie?.overview}</h1>
                 <div className='banner__buttons'>
                     <button className='banner__button'>
                         <FontAwesomeIcon icon={faPlay} className='banner__icon' />
@@ -47,7 +52,7 @@ const Banner = () => {
                         상세 정보
                     </button>
                 </div>
-                <h1 className='banner__description'>{movie?.overview}</h1>
+
             </div>
             <div className='banner__fadeBottom'></div>
         </header>

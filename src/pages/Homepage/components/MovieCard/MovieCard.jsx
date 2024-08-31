@@ -3,6 +3,7 @@ import './MovieCard.style.css'
 
 const MovieCard = ({ movie }) => {
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie.poster_path}`;
+    const trailerUrl = `https://www.themoviedb.org/t/p/original${movie.video_path}`;
     return (
         <div className='movie__cards'>
             <div

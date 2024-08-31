@@ -1,4 +1,3 @@
-// hooks/useTopRatedMovies.js
 import { useQuery } from '@tanstack/react-query';
 import api from '../utils/api';
 

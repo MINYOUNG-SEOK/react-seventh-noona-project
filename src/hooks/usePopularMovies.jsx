@@ -17,7 +17,7 @@ export const usePopularMoviesQuery = () => {
     return useQuery({
         queryKey: ['movie-popular'],
         queryFn: fetchPopularMovies,
-        onSuccess: (data) => console.log('Fetched data:', data), 
-        onError: (error) => console.error('Fetching error:', error), 
+        onSuccess: (data) => console.log('Fetched data:', data),
+        onError: (error) => console.error('Fetching error:', error),
     });
 };

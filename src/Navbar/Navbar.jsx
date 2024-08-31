@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.style.css';
 import { Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,26 +26,34 @@ const Navbar = () => {
   }, []);
 
   const categories = [
-    { href: '#home', label: '홈' },
-    { href: '#movies', label: '영화' },
-    { href: '#new', label: 'NEW! 요즘 대세 콘텐츠' },
-    { href: '#my-list', label: '내가 찜한 리스트' },
-    { href: '#languages', label: '언어별로 찾아보기' },
+    { href: '/', label: '홈' },
+    { href: '/movies', label: '영화' },
+    { href: '/series', label: '시리즈' },
+    { href: '/my-list', label: '내가 찜한 리스트' },
+    { href: '/languages', label: '언어별로 찾아보기' },
   ];
 
   return (
     <div className={`nav ${show ? 'nav__black' : ''}`}>
 
       <div className='logo__area'>
-        <img
-          src='/img/netflix__logo.png'
-          alt='netflix__logo'
-          className='nav__logo'
-          onClick={() => window.location.reload()}
-        />
+        <a href="/">
+          <img
+            src='/img/netflix__logo.png'
+            alt='netflix__logo'
+            className='nav__logo'
+          />
+        </a>
       </div>
 
-      <div className='category__area'>
+      <div className='menu__button' onClick={() => setShowMenu(!showMenu)}>
+        <div className="menu__container">
+          <span className='menu__text'>메뉴</span>
+          <FontAwesomeIcon icon={faChevronDown} className='menu__icon' />
+        </div>
+      </div>
+
+      <div className={`category__area ${showMenu ? 'show' : ''}`}>
         {categories.map((category, index) => (
           <a key={index} href={category.href}>
             {category.label}
@@ -61,7 +70,7 @@ const Navbar = () => {
           <input
             type='text'
             className='search__input'
-            placeholder='Search...'
+            placeholder='어떤 영화를 볼까?'
             autoFocus
           />
         </div>
