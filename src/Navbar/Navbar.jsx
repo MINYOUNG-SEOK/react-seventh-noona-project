@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.style.css';
 import { Outlet } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,14 +52,26 @@ const Navbar = () => {
         ))}
       </div>
 
-      <div className='avatar__area'>
+
+      <div className='searchAndAvatar__container'>
+        <button className='search__icon' onClick={() => setShowSearch(!showSearch)}>
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
+        <div className={`search__input-container ${showSearch ? 'active' : ''}`}>
+          <input
+            type='text'
+            className='search__input'
+            placeholder='Search...'
+            autoFocus
+          />
+        </div>
         <img
           src='/img/netflix__avatar.png'
           alt='netflix__avatar'
           className='nav__avatar'
         />
-        <Outlet />
       </div>
+      <Outlet />
     </div>
   );
 };

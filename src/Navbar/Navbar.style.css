@@ -47,20 +47,57 @@
     color: #9f9f9f;
 }
 
-.avatar__area {
+.searchAndAvatar__container {
     display: flex;
     align-items: center;
-    margin-right: auto;
+    gap: 10px;
+    margin-left: auto;
+    padding-right: 40px;
+    position: relative;
+}
+
+.search__icon {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.search__input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.5s ease;
+}
+
+.search__input-container.active {
+    max-width: 200px;
+}
+
+.search__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.search__input:focus {
+    outline: none;
 }
 
 .nav__avatar {
-    position: absolute;
-    right: 30px;
     width: 40px;
     object-fit: contain;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 30px;
 }
 
 /* 반응형 디자인 */
@@ -77,6 +114,10 @@
         font-size: 13px;
         padding: 4px 8px;
     }
+
+    .searchAndAvatar__container {
+        padding-right: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -90,6 +131,11 @@
 
     .category__area {
         display: none;
+    }
+
+    .searchAndAvatar__container {
+        gap: 10px;
+        /* 작은 화면에서 아이콘과 아바타의 간격 줄임 */
     }
 
     .nav__avatar {
@@ -109,5 +155,10 @@
 
     .nav__avatar {
         width: 30px;
+    }
+
+    .searchAndAvatar__container {
+        padding-right: 20px;
+        /* 매우 작은 화면에서도 적절한 여백 유지 */
     }
 }

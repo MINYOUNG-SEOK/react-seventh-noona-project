@@ -1,5 +1,5 @@
 .movie__slide {
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     position: relative;
     overflow: hidden;
 }
@@ -12,7 +12,7 @@
 .slide__container {
     display: flex;
     gap: 10px;
-    overflow-x: hidden;
+    overflow-x: auto;
     scroll-behavior: smooth;
     white-space: nowrap;
     position: relative;
@@ -45,4 +45,57 @@
 
 .slide__button.right {
     right: 10px;
+}
+
+
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .movie__slide__title {
+        font-size: 20px;
+    }
+
+    .slide__button {
+        font-size: 30px;
+        /* 버튼 크기 줄이기 */
+        padding: 8px;
+        /* 버튼 패딩 줄이기 */
+    }
+}
+
+@media (max-width: 768px) {
+    .movie__slide__title {
+        font-size: 18px;
+    }
+
+    .slide__button {
+        font-size: 25px;
+        /* 작은 화면에서 버튼 크기 줄이기 */
+        padding: 6px;
+    }
+
+    .slide__button.left {
+        left: 5px;
+    }
+
+    .slide__button.right {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie__slide__title {
+        font-size: 16px;
+    }
+
+    .slide__button {
+        font-size: 20px;
+        /* 모바일에서 버튼 더 작게 */
+        padding: 5px;
+    }
+
+    .slide__container {
+        gap: 5px;
+        /* 카드 간격 줄이기 */
+    }
 }

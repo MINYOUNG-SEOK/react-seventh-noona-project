@@ -1,5 +1,7 @@
 import React from 'react';
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import './Banner.style.css';
 
 const Banner = () => {
@@ -36,8 +38,14 @@ const Banner = () => {
             <div className='banner__contents'>
                 <h1 className='banner__title'>{movie?.title || movie?.name || movie?.original_name}</h1>
                 <div className='banner__buttons'>
-                    <button className='banner__button'>재생</button>
-                    <button className='banner__button'>상세 정보</button>
+                    <button className='banner__button'>
+                        <FontAwesomeIcon icon={faPlay} className='banner__icon' />
+                        재생
+                    </button>
+                    <button className='banner__button'>
+                        <FontAwesomeIcon icon={faInfoCircle} className='banner__icon' />
+                        상세 정보
+                    </button>
                 </div>
                 <h1 className='banner__description'>{movie?.overview}</h1>
             </div>
