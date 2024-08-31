@@ -198,7 +198,7 @@
     }
 
     .searchAndAvatar__container {
-        gap: 10px;
+        gap: 5px;
     }
 
     .nav__avatar {
@@ -247,6 +247,5 @@
 
     .search__input-container.active {
         max-width: 140px;
-        /* 480px 이하일 때 검색창 너비 조정 */
     }
 }
