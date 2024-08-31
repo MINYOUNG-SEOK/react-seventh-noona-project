@@ -1,0 +1,48 @@
+.movie__slide {
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie__slide__title {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.slide__container {
+    display: flex;
+    gap: 10px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    position: relative;
+}
+
+.slide__button {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background-color: initial;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 15px;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide__button:hover {
+    font-size: 50px;
+}
+
+.slide__button.left {
+    left: 10px;
+}
+
+.slide__button.right {
+    right: 10px;
+}

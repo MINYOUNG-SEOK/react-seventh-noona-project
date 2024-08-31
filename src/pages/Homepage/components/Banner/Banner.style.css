@@ -1,0 +1,134 @@
+.banner {
+    position: relative;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    margin-top: -70px;
+    padding-top: 70px;
+    z-index: 1;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.banner__contents {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+.banner__title {
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 0.3rem;
+}
+
+.banner__button {
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 0.9vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    background-color: rgba(109, 109, 110, 0.7);
+    padding-bottom: 0.5rem;
+}
+
+.banner__button:hover {
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2;
+    ;
+}
+
+.banner__description {
+    background-color: initial;
+    width: 45rem;
+    line-height: 1.3;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    max-width: 360px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.banner__fadeBottom {
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,
+            transparent,
+            rgba(0, 0, 0, 0.9),
+            #000);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .banner__title {
+        font-size: 2.5rem;
+    }
+
+    .banner__description {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 70vh;
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+
+    .banner__title {
+        font-size: 2rem;
+    }
+
+    .banner__description {
+        max-width: 100%;
+        width: auto;
+        font-size: 0.7rem;
+    }
+
+    .banner__button {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 60vh;
+        margin-top: -50px;
+        padding-top: 50px;
+    }
+
+    .banner__title {
+        font-size: 1.5rem;
+    }
+
+    .banner__description {
+        font-size: 0.6rem;
+        height: 60px;
+    }
+
+    .banner__button {
+        font-size: 0.7rem;
+        padding: 0.3rem 1rem;
+    }
+}
