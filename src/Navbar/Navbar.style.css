@@ -251,12 +251,12 @@
 
     .searchAndAvatar__container {
         padding-right: 27px;
-        gap: 0;
+        gap: 1;
 
     }
 
     .search__icon {
-        margin-right: 0px;
+        margin-right: -5px;
     }
 
     .search__input-container.active {
