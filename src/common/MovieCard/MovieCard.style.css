@@ -33,6 +33,7 @@
     transition: opacity 0.3s ease;
     justify-content: center;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .movie__card:hover .overlay {
@@ -47,8 +48,14 @@
     color: #fff;
     width: 100%;
     max-height: 80%;
+    overflow-x: hidden;
     overflow-y: auto;
     text-align: center;
+    scrollbar-width: none;
+}
+
+.overlay__content::-webkit-scrollbar {
+    display: none;
 }
 
 .movie__title {
@@ -277,5 +284,10 @@
         width: 25px;
         height: 25px;
         font-size: 12px;
+    }
+
+    .movie__actions {
+        margin-top: 5px;
+        /* 가장 작은 화면에서 버튼이 더욱 위로 올라가도록 설정 */
     }
 }
