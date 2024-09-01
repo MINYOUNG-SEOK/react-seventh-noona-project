@@ -71,7 +71,6 @@ const Navbar = () => {
             type='text'
             className='search__input'
             placeholder='어떤 영화를 볼까요?'
-            autoFocus
           />
         </div>
         <img

@@ -1,21 +1,23 @@
+/* 기본 네비게이션 스타일 */
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
     height: 70px;
-    z-index: 10;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: all 0.5s ease-in;
+    justify-content: space-between;
     background-color: transparent;
+    z-index: 10;
+    transition: background-color 0.3s ease, height 0.3s ease;
 }
 
 .nav__black {
     background-color: #000;
 }
 
+/* 로고 영역 */
 .logo__area {
     display: flex;
     align-items: center;
@@ -29,6 +31,7 @@
     margin-top: 5px;
 }
 
+/* 카테고리 영역 */
 .category__area {
     display: flex;
     gap: 15px;
@@ -39,14 +42,13 @@
 
 .category__area.show {
     display: block;
-    flex-direction: column;
     position: absolute;
     top: 50px;
     left: 90px;
     width: 150px;
-    background-color: rgba(0, 0, 0, 0.9);
     padding: 15px;
     max-height: 300px;
+    background-color: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
 }
 
@@ -54,22 +56,22 @@
     display: block;
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
     padding: 15px;
-    transition: color 0.3s;
     text-align: center;
+    transition: color 0.3s;
 }
 
 .category__area a:hover {
     color: #9f9f9f;
 }
 
+/* 메뉴 버튼 */
 .menu__button {
     display: none;
     background: none;
     border: none;
     color: #fff;
-    font-size: 16px;
     cursor: pointer;
     align-items: center;
     gap: 5px;
@@ -79,7 +81,6 @@
     display: flex;
     align-items: center;
     margin-left: -15px;
-
 }
 
 .menu__text {
@@ -88,9 +89,10 @@
 }
 
 .menu__icon {
-    font-size: 14px;
+    font-size: 20px;
 }
 
+/* 검색 및 아바타 영역 */
 .searchAndAvatar__container {
     display: flex;
     align-items: center;
@@ -109,7 +111,6 @@
 }
 
 .search__input-container {
-    position: relative;
     display: flex;
     align-items: center;
     max-width: 0;
@@ -130,13 +131,14 @@
     background-color: #fff;
     color: #000;
     transition: opacity 0.3s ease;
-    opacity: 1;
 }
 
 .search__input:focus {
     outline: none;
+    border-color: #555;
 }
 
+/* 아바타 */
 .nav__avatar {
     width: 38px;
     object-fit: contain;
@@ -155,21 +157,15 @@
 
     .category__area {
         display: none;
-        max-height: 0;
     }
 
     .menu__button {
         display: flex;
-        gap: 15px;
-        font-size: 15px;
     }
-
 
     .searchAndAvatar__container {
         padding-right: 40px;
     }
-
-
 }
 
 @media (max-width: 768px) {
@@ -181,42 +177,21 @@
         width: 100px;
     }
 
-    .category__area {
-        display: none;
-        max-height: 0;
-    }
-
-    .category__area a {
-        font-size: 15px;
-    }
-
-    .menu__button {
-        display: flex;
-        gap: 15px;
-        font-size: 15px;
-    }
-
     .menu__text {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .menu__icon {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .searchAndAvatar__container {
         gap: 5px;
     }
 
-    .search__input {
-        padding: 7px;
-    }
-
     .nav__avatar {
         width: 33px;
     }
-
-
 }
 
 @media (max-width: 480px) {
@@ -229,25 +204,18 @@
         width: 100px;
     }
 
-    .menu__button {
-        display: flex;
-        margin-right: 0;
-        gap: 5px;
-    }
-
     .menu__text {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .menu__icon {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .category__area.show {
         top: 40px;
         left: 40px;
     }
-
 
     .searchAndAvatar__container {
         padding-right: 27px;
