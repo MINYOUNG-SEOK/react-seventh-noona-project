@@ -1,0 +1,239 @@
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto 20px auto;
+    position: relative;
+    z-index: 10;
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    padding: 0;
+}
+
+.search-input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 70%;
+    max-width: 800px;
+    min-width: 300px;
+    background-color: #2b2b2b;
+    border-radius: 30px;
+}
+
+.search-input-container input {
+    flex: 1;
+    padding: 15px 40px 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-input-container input::placeholder {
+    color: #bbb;
+}
+
+.search-input-container .input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.genre-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    width: 80%;
+    padding: 0;
+}
+
+.genre-section button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 15px;
+    background-color: #2b2b2b;
+    color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 13px;
+    height: 40px;
+    flex: 1 1 auto;
+    max-width: 130px;
+    min-width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.genre-section button:hover {
+    background-color: #444;
+}
+
+.genre-section .active {
+    border: 1px solid #fff;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.movie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.movie-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 50px 0 0 0;
+}
+
+.movie-list-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.movie-card {
+    text-align: center;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .search-input-container {
+        width: 70%;
+    }
+
+    .genre-section {
+        width: 70%;
+        padding: 0;
+        gap: 8px;
+    }
+
+    .genre-section button {
+        padding: 8px 14px;
+        max-width: 120px;
+        height: 35px;
+    }
+
+    .movie-container {
+        padding: 0 15px;
+    }
+
+    .movie-list-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .search-input-container {
+        width: 70%;
+    }
+
+    .movie-list-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .genre-section {
+        gap: 8px;
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    .genre-section button {
+        font-size: 12px;
+        padding: 8px 10px;
+        height: 35px;
+    }
+
+    .search-input-container {
+        width: 80%;
+    }
+
+    .movie-list-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .search-input-container {
+        width: 70%;
+    }
+
+    .search-input-container input {
+        padding: 10px 15px 10px 15px;
+    }
+
+    .input-icon {
+        right: 10px;
+    }
+
+    .genre-section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 0;
+        width: 80%;
+        margin: 15px auto;
+    }
+
+    .genre-section button {
+        font-size: 12px;
+        padding: 5px 8px;
+        min-width: auto;
+        height: 30px;
+    }
+
+    .movie-list-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}

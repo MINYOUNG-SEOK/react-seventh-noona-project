@@ -8,6 +8,7 @@ const api = axios.create({
     Accept: "application/json",
     Authorization: `Bearer ${API_KEY}`,
   },
+  timeout: 20000,
 });
 
 // 요청 인터셉터 추가하기

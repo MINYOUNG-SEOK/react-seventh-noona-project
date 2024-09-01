@@ -7,21 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
-    const imageUrl = `https://www.themoviedb.org/t/p/original${movie.poster_path}`;
-    const { data: genres = [], isLoading: genreLoading, error: genreError } = useMovieGenreQuery();
-    const { data: rating, isLoading: ratingLoading, error: ratingError } = useMovieRatingQuery(movie.id);
-    const { data: details, isLoading: detailsLoading, error: detailsError } = useMovieDetailsQuery(movie.id);
+    const imageUrl = `https://www.themoviedb.org/t/p/original${movie?.poster_path}`;
 
+    const { data: genres = [] } = useMovieGenreQuery();
+    const { data: rating = '등급 정보 없음' } = useMovieRatingQuery(movie?.id);
+    const { data: details = { runtime: 0 } } = useMovieDetailsQuery(movie?.id);
 
-    if (genreLoading || ratingLoading || detailsLoading) {
-        return <div>Loading...</div>;
-    }
-
-    if (genreError || ratingError || detailsError) {
-        return <div>Error loading data.</div>;
-    }
-
-    const formattedRuntime = details.runtime ? `${Math.floor(details.runtime / 60)}시간 ${details.runtime % 60}분` : '상영 시간 없음';
+    const formattedRuntime = details?.runtime
+        ? `${Math.floor(details.runtime / 60)}시간 ${details.runtime % 60}분`
+        : '상영 시간 없음';
 
     const maxGenres = window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 3;
 
@@ -30,14 +24,10 @@ const MovieCard = ({ movie }) => {
         return acc;
     }, {});
 
-    const genreNames = movie.genre_ids
-        ?.map((id) => genreMap[id])
-        .filter(Boolean)
-        .slice(0, maxGenres)
-        .join(' • ') || '장르 정보 없음';
+    const genreNames =
+        movie?.genre_ids?.map((id) => genreMap[id]).filter(Boolean).slice(0, maxGenres).join(' • ') || '장르 정보 없음';
 
-
-    const formattedRating = movie.vote_average.toFixed(2);
+    const formattedRating = movie?.vote_average?.toFixed(2) || '평점 없음';
 
     return (
         <div className="movie__cards">
@@ -49,7 +39,7 @@ const MovieCard = ({ movie }) => {
             >
                 <div className="overlay">
                     <div className="overlay__content">
-                        <h3 className="movie__title">{movie.title}</h3>
+                        <h3 className="movie__title">{movie?.title || '제목 없음'}</h3>
                         <div className="movie__details">
                             <span className="movie__rating">⭐ {formattedRating}</span>
                             <span className="movie__genre">{genreNames}</span>
@@ -59,15 +49,15 @@ const MovieCard = ({ movie }) => {
                             </div>
                         </div>
                         <div className="movie__actions">
-                            <div className='left-buttons'>
-                                <button className="play-button">
+                            <div className="left-buttons">
+                                <button className="play-button" aria-label="Play">
                                     <FontAwesomeIcon icon={faPlay} />
                                 </button>
-                                <button className="add-button" data-tooltip="찜한 리스트에 추가">
+                                <button className="add-button" aria-label="Add to List" data-tooltip="찜한 리스트에 추가">
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
-                            <button className="info-button" data-tooltip="상세 정보">
+                            <button className="info-button" aria-label="More Info" data-tooltip="상세 정보">
                                 <FontAwesomeIcon icon={faAngleDown} />
                             </button>
                         </div>

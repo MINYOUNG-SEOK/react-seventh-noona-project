@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.style.css';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-
 const Navbar = () => {
+  const [keyword, setKeyword] = useState('');
   const [show, setShow] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
+      setShow(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,9 +32,19 @@ const Navbar = () => {
     { href: '/languages', label: '언어별로 찾아보기' },
   ];
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/movies?q=${encodeURIComponent(keyword)}&genre=null`);
+      setKeyword('');
+      setShowSearch(false);
+    }
+  };
+
+  const isMoviePage = location.pathname.includes('/movies');
+
   return (
     <div className={`nav ${show ? 'nav__black' : ''}`}>
-
       <div className='logo__area'>
         <a href="/">
           <img
@@ -61,18 +70,23 @@ const Navbar = () => {
         ))}
       </div>
 
-
       <div className='searchAndAvatar__container'>
-        <button className='search__icon' onClick={() => setShowSearch(!showSearch)}>
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
-        <div className={`search__input-container ${showSearch ? 'active' : ''}`}>
-          <input
-            type='text'
-            className='search__input'
-            placeholder='어떤 영화를 볼까요?'
-          />
-        </div>
+        {!isMoviePage && (
+          <>
+            <button className='search__icon' onClick={() => setShowSearch(!showSearch)}>
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+            <form onSubmit={handleSearchSubmit} className={`search__input-container ${showSearch ? 'active' : ''}`}>
+              <input
+                type='text'
+                className='search__input'
+                placeholder='어떤 영화를 볼까요?'
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+              />
+            </form>
+          </>
+        )}
         <img
           src='/img/netflix__avatar.png'
           alt='netflix__avatar'
