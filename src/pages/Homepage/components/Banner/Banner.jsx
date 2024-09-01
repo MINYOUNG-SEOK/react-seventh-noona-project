@@ -7,6 +7,7 @@ import './Banner.style.css';
 const Banner = () => {
     const { data, isLoading, error, isError } = useKoreanMoviesQuery();
 
+
     if (isLoading) {
         return <div>Loading...</div>;
     }

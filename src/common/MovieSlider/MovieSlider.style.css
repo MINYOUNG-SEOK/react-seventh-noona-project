@@ -17,6 +17,7 @@
     white-space: nowrap;
     touch-action: pan-y;
     cursor: grab;
+    overflow: hidden;
 }
 
 .slide__container::-webkit-scrollbar {
