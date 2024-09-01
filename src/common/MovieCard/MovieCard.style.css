@@ -191,8 +191,35 @@
     transform: scale(1.2);
 }
 
+button[data-tooltip] {
+    position: relative;
+}
 
-/* 반응형 디자인 */
+button[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+    z-index: 20;
+}
+
+button[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
 @media (max-width: 1024px) {
     .movie__card {
         width: 180px;
@@ -213,7 +240,6 @@
 
     .movie__age-rating {
         font-size: 11px;
-        /* 시청 등급 글씨 크기 줄이기 */
     }
 
     .play-button,
@@ -245,7 +271,6 @@
 
     .movie__age-rating {
         font-size: 10px;
-        /* 더 줄어든 시청 등급 글씨 크기 */
     }
 
     .play-button,
@@ -254,6 +279,12 @@
         width: 30px;
         height: 30px;
         font-size: 14px;
+    }
+
+    button[data-tooltip]::after {
+        font-size: 10px;
+        padding: 3px 6px;
+        bottom: 125%;
     }
 }
 
@@ -277,7 +308,6 @@
 
     .movie__age-rating {
         font-size: 9px;
-        /* 최소 시청 등급 글씨 크기 */
     }
 
     .play-button,
@@ -290,6 +320,11 @@
 
     .movie__actions {
         margin-top: 5px;
-        /* 가장 작은 화면에서 버튼이 더욱 위로 올라가도록 설정 */
+    }
+
+    button[data-tooltip]::after {
+        font-size: 9px;
+        padding: 2px 5px;
+        bottom: 130%;
     }
 }

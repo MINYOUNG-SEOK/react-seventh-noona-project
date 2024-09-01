@@ -63,11 +63,11 @@ const MovieCard = ({ movie }) => {
                                 <button className="play-button">
                                     <FontAwesomeIcon icon={faPlay} />
                                 </button>
-                                <button className="add-button">
+                                <button className="add-button" data-tooltip="찜한 리스트에 추가">
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
-                            <button className="info-button">
+                            <button className="info-button" data-tooltip="상세 정보">
                                 <FontAwesomeIcon icon={faAngleDown} />
                             </button>
                         </div>
