@@ -41,7 +41,7 @@ const MovieCard = ({ movie }) => {
                     <div className="overlay__content">
                         <h3 className="movie__title">{movie?.title || '제목 없음'}</h3>
                         <div className="movie__details">
-                            <span className="movie__rating">⭐ {formattedRating}</span>
+                            <span className="movie__rating">⭐{formattedRating}</span>
                             <span className="movie__genre">{genreNames}</span>
                             <div className="movie__info-row">
                                 <span className="movie__duration">{formattedRuntime}</span>

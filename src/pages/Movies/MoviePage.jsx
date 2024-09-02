@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css';
 
 const MoviePage = () => {
@@ -13,6 +14,8 @@ const MoviePage = () => {
   const genre = query.get('genre');
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [page, setPage] = useState(1);
+
+  const inputRef = useRef(null);
 
   const { data: movies, isLoading, refetch } = useSearchMovieQuery({
     keyword,
@@ -47,8 +50,12 @@ const MoviePage = () => {
       setQuery({ q: inputValue, genre: selectedGenre });
       setPage(1);
       setInputValue('');
+      inputRef.current.blur();
     }
   };
+
+
+
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -57,6 +64,7 @@ const MoviePage = () => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSearch();
+      inputRef.current.blur();
     }
   };
 
@@ -69,6 +77,7 @@ const MoviePage = () => {
       <div className="search-bar">
         <div className="search-input-container">
           <input
+            ref={inputRef}
             type="text"
             placeholder="원하는 장르별로 검색할 수 있어요!"
             value={inputValue}
@@ -107,21 +116,19 @@ const MoviePage = () => {
       )}
 
       <div className="movie-container">
-        {!keyword && !selectedGenre && (
-          <h2 className="movie-title">지금 뜨고있는 영화</h2>
-        )}
+
 
         <div className="movie-list-section">
+          {!keyword && !selectedGenre && (
+            <h2 className="movie-title">지금 뜨고있는 영화</h2>
+          )}
           {isLoading ? (
             <p>로딩 중...</p>
           ) : (
             filteredMovies &&
             filteredMovies.map((movie) => (
-              <div key={movie.id} className="movie-card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                  alt={movie.title}
-                />
+              <div className="movie-card">
+                <MovieCard key={movie.id} movie={movie} />
               </div>
             ))
           )}

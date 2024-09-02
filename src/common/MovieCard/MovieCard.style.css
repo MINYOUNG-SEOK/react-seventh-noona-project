@@ -61,7 +61,7 @@
 }
 
 .movie__title {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
     word-break: break-word;
@@ -74,7 +74,7 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 10px;
     color: #ccc;
 }
@@ -222,12 +222,80 @@ button[data-tooltip]:hover::after {
 
 @media (max-width: 1024px) {
     .movie__card {
+        width: 200px;
+        height: 290px;
+    }
+
+    .movie__title {
+        font-size: 18px;
+    }
+
+    .movie__details {
+        font-size: 16px;
+    }
+
+    .movie__details span {
+        padding: 3px 0;
+    }
+
+    .movie__age-rating {
+        font-size: 11px;
+    }
+
+    .play-button,
+    .add-button,
+    .info-button {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie__card {
         width: 180px;
         height: 270px;
     }
 
     .movie__title {
-        font-size: 20px;
+        font-size: 17px;
+    }
+
+    .movie__details {
+        font-size: 15px;
+    }
+
+    .movie__details span {
+        padding: 2px 0;
+    }
+
+    .movie__age-rating {
+        font-size: 11px;
+    }
+
+    .play-button,
+    .add-button,
+    .info-button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    button[data-tooltip]::after {
+        font-size: 10px;
+        padding: 3px 6px;
+        bottom: 125%;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie__card {
+        width: 160px;
+        height: 250px;
+    }
+
+    .movie__title {
+        font-size: 16px;
     }
 
     .movie__details {
@@ -245,77 +313,9 @@ button[data-tooltip]:hover::after {
     .play-button,
     .add-button,
     .info-button {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .movie__card {
-        width: 140px;
-        height: 210px;
-    }
-
-    .movie__title {
-        font-size: 16px;
-    }
-
-    .movie__details {
-        font-size: 12px;
-    }
-
-    .movie__details span {
-        padding: 2px 0;
-    }
-
-    .movie__age-rating {
-        font-size: 10px;
-    }
-
-    .play-button,
-    .add-button,
-    .info-button {
         width: 30px;
         height: 30px;
-        font-size: 14px;
-    }
-
-    button[data-tooltip]::after {
-        font-size: 10px;
-        padding: 3px 6px;
-        bottom: 125%;
-    }
-}
-
-@media (max-width: 480px) {
-    .movie__card {
-        width: 120px;
-        height: 180px;
-    }
-
-    .movie__title {
-        font-size: 14px;
-    }
-
-    .movie__details {
-        font-size: 11px;
-    }
-
-    .movie__details span {
-        padding: 1px 0;
-    }
-
-    .movie__age-rating {
-        font-size: 9px;
-    }
-
-    .play-button,
-    .add-button,
-    .info-button {
-        width: 25px;
-        height: 25px;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .movie__actions {
