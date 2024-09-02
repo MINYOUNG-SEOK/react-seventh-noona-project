@@ -8,7 +8,6 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css';
 
-
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
@@ -19,16 +18,13 @@ const MoviePage = () => {
 
   const inputRef = useRef(null);
 
-  const { data: movies, isLoading, refetch } = useSearchMovieQuery({
+  const { data: movies, isLoading, refetch, isError } = useSearchMovieQuery({
     keyword,
     genre: selectedGenre,
     page,
   });
 
-
-
-
-  const { data: genres } = useMovieGenreQuery();
+  const { data: genres, isLoading: genresLoading } = useMovieGenreQuery();
 
   useEffect(() => {
     refetch();
@@ -42,7 +38,6 @@ const MoviePage = () => {
 
   const handleShowAll = () => {
     setSelectedGenre(null);
-    setQuery({ q: inputValue });
     setPage(1);
     setQuery({ q: inputValue, page: 1 });
   };
@@ -54,7 +49,7 @@ const MoviePage = () => {
 
   const handleSearch = () => {
     if (inputValue.trim()) {
-      setQuery({ q: inputValue, genre: selectedGenre });
+      setQuery({ q: inputValue, genre: selectedGenre, page: 1 });
       setPage(1);
       setInputValue('');
       inputRef.current.blur();
@@ -72,11 +67,21 @@ const MoviePage = () => {
     }
   };
 
-  const filteredMovies = movies?.results.filter((movie) =>
+  // 안전하게 데이터를 필터링합니다.
+  const filteredMovies = movies?.results?.filter((movie) =>
     selectedGenre ? movie.genre_ids.includes(Number(selectedGenre)) : true
-  );
+  ) || [];
 
   const totalPages = movies?.total_pages || 1;
+
+  // 로딩 중이거나 에러가 있을 때의 화면 처리
+  if (isLoading || genresLoading) {
+    return <p>로딩 중...</p>;
+  }
+
+  if (isError) {
+    return <p>데이터를 불러오는 중 오류가 발생했습니다.</p>;
+  }
 
   return (
     <div className="movie-page">
@@ -122,22 +127,15 @@ const MoviePage = () => {
       )}
 
       <div className="movie-container">
-
-
         <div className="movie-list-section">
           {!keyword && !selectedGenre && (
             <h2 className="movie-title">지금 뜨고있는 영화</h2>
           )}
-          {isLoading ? (
-            <p>로딩 중...</p>
-          ) : (
-            filteredMovies &&
-            filteredMovies.map((movie) => (
-              <div className="movie-card" key={movie.id} >
-                <MovieCard movie={movie} />
-              </div>
-            ))
-          )}
+          {filteredMovies.map((movie) => (
+            <div className="movie-card" key={movie.id}>
+              <MovieCard movie={movie} />
+            </div>
+          ))}
         </div>
       </div>
 
