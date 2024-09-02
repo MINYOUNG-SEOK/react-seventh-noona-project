@@ -1,6 +1,7 @@
 .movie-page {
     max-width: 1400px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 .search-bar {
@@ -20,7 +21,7 @@
     width: 100%;
     padding: 13px;
     font-size: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 10px;
 }
 
@@ -49,7 +50,7 @@
     border: none;
     border-radius: 10px;
     background-color: #333;
-    color: #fff;
+    color: #eee;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 16px;
@@ -64,7 +65,7 @@
 
 .genre-section button.active,
 .genre-section button:hover {
-    border: 2px solid #fff;
+    border: 2px solid #eee;
 }
 
 .movie-container {
@@ -95,27 +96,6 @@
     transform: scale(1.05);
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.pagination button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.pagination button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-}
 
 .movie-title {
     flex-basis: 100%;
@@ -123,8 +103,50 @@
     padding-left: 10px;
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: #eee;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.page-item {
+    margin: 0 10px;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    color: #eee;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.page-arrow {
+    font-size: 25px;
+}
+
+.page-link:hover {
+    cursor: pointer;
+}
+
+.page-item.active .page-link {
+    font-weight: 900;
+    border: 2px solid #eee;
+}
+
 
 @media (max-width: 1024px) {
     .movie-card {
@@ -206,5 +228,23 @@
 
     .movie-title {
         font-size: large;
+    }
+
+    .pagination {
+        margin: 8px 0;
+    }
+
+    .page-item {
+        margin: 0 10px;
+    }
+
+    .page-link {
+        width: 27px;
+        height: 27px;
+        font-size: 15px;
+    }
+
+    .page-arrow {
+        font-size: 18px;
     }
 }

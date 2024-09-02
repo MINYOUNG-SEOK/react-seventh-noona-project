@@ -3,9 +3,11 @@ import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import MovieCard from '../../common/MovieCard/MovieCard';
+import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css';
+
 
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
@@ -23,6 +25,9 @@ const MoviePage = () => {
     page,
   });
 
+
+
+
   const { data: genres } = useMovieGenreQuery();
 
   useEffect(() => {
@@ -31,18 +36,20 @@ const MoviePage = () => {
 
   const handleGenreClick = (genreId) => {
     setSelectedGenre(genreId);
-    setQuery({ q: inputValue, genre: genreId });
     setPage(1);
+    setQuery({ q: inputValue, genre: genreId, page: 1 });
   };
 
   const handleShowAll = () => {
     setSelectedGenre(null);
     setQuery({ q: inputValue });
     setPage(1);
+    setQuery({ q: inputValue, page: 1 });
   };
 
-  const handlePageChange = (newPage) => {
-    setPage(newPage);
+  const handlePageClick = ({ selected }) => {
+    setPage(selected + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSearch = () => {
@@ -53,9 +60,6 @@ const MoviePage = () => {
       inputRef.current.blur();
     }
   };
-
-
-
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -71,6 +75,8 @@ const MoviePage = () => {
   const filteredMovies = movies?.results.filter((movie) =>
     selectedGenre ? movie.genre_ids.includes(Number(selectedGenre)) : true
   );
+
+  const totalPages = movies?.total_pages || 1;
 
   return (
     <div className="movie-page">
@@ -127,8 +133,8 @@ const MoviePage = () => {
           ) : (
             filteredMovies &&
             filteredMovies.map((movie) => (
-              <div className="movie-card">
-                <MovieCard key={movie.id} movie={movie} />
+              <div className="movie-card" key={movie.id} >
+                <MovieCard movie={movie} />
               </div>
             ))
           )}
@@ -136,16 +142,27 @@ const MoviePage = () => {
       </div>
 
       <div className="pagination">
-        <button onClick={() => handlePageChange(page - 1)} disabled={page === 1}>
-          이전
-        </button>
-        <span>{page}</span>
-        <button
-          onClick={() => handlePageChange(page + 1)}
-          disabled={!movies || !movies.results.length}
-        >
-          다음
-        </button>
+        <ReactPaginate
+          nextLabel={<FontAwesomeIcon icon={faChevronRight} className="page-arrow" />}
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={totalPages}
+          previousLabel={<FontAwesomeIcon icon={faChevronLeft} className="page-arrow" />}
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+          renderOnZeroPageCount={null}
+          forcePage={page - 1}
+        />
       </div>
     </div>
   );

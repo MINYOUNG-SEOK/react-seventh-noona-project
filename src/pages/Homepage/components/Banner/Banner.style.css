@@ -1,6 +1,6 @@
 .banner {
     position: relative;
-    color: white;
+    color: #eee;
     width: 100%;
     height: 100vh;
     margin-top: -70px;
@@ -49,7 +49,7 @@
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    color: #fff;
+    color: #eee;
     outline: none;
     border: none;
     font-weight: 500;
@@ -67,7 +67,7 @@
 
 .banner__button:hover {
     color: #000;
-    background-color: #e6e6e6;
+    background-color: #eee;
     transition: all 0.2s;
 }
 

@@ -34,7 +34,7 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: white;
+    color: #eee;
     font-size: 50px;
     cursor: pointer;
     z-index: 10;
