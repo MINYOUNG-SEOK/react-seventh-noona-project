@@ -67,14 +67,12 @@ const MoviePage = () => {
     }
   };
 
-  // 안전하게 데이터를 필터링합니다.
   const filteredMovies = movies?.results?.filter((movie) =>
     selectedGenre ? movie.genre_ids.includes(Number(selectedGenre)) : true
   ) || [];
 
   const totalPages = movies?.total_pages || 1;
 
-  // 로딩 중이거나 에러가 있을 때의 화면 처리
   if (isLoading || genresLoading) {
     return <p>로딩 중...</p>;
   }

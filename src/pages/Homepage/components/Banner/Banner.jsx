@@ -16,20 +16,16 @@ const Banner = () => {
         return <div>Error fetching data</div>;
     }
 
-    // 옵셔널 체이닝을 사용하여 data와 results가 안전하게 접근되도록 함
     const popularMovies = data?.results?.filter(movie => movie.vote_average >= 6) || [];
 
-    // 데이터가 비어있을 경우를 처리
     if (popularMovies.length === 0) {
         console.error('No popular movies available');
         return <div>No popular movies available</div>;
     }
 
-    // 랜덤으로 영화 선택
     const randomIndex = Math.floor(Math.random() * popularMovies.length);
     const movie = popularMovies[randomIndex];
 
-    // 영화 데이터 유효성 검사
     if (!movie || !movie.backdrop_path) {
         console.error('No movie data available or missing poster path');
         return <div>No movie data available</div>;
