@@ -62,7 +62,7 @@
 
 .movie__title {
     color: #eee;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
     margin-bottom: 8px;
     line-height: 1.2;
@@ -106,15 +106,15 @@
 
 .movie__age-rating {
     background: #4b5563;
-    padding: 3px 6px;
+   padding: 5px 10px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     display: inline-block;
     text-align: center;
     color: #eee;
     width: auto;
-    min-width: 25px;
+    min-width: 20px;
     box-sizing: content-box;
     margin: 0;
 }
@@ -300,7 +300,7 @@ button[data-tooltip]:hover::after {
     }
 
     .movie__title {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .movie__details {
@@ -309,10 +309,11 @@ button[data-tooltip]:hover::after {
 
     .movie__details span {
         padding: 3px 0;
+        font-size: 12px;
     }
 
     .movie__age-rating {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .play-button,
@@ -320,7 +321,7 @@ button[data-tooltip]:hover::after {
     .info-button {
         width: 30px;
         height: 30px;
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .movie__actions {
