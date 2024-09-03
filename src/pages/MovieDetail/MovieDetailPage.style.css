@@ -83,18 +83,9 @@
     gap: 10px;
 }
 
-.movie-card {
-    display: flex;
-    gap: 10px;
-    background-color: #2a2a2a;
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
 
-.movie-card:hover {
-    background-color: #333;
-}
+
+
 
 @media (max-width: 768px) {
     .movie-detail-page {
