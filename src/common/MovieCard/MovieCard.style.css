@@ -117,7 +117,7 @@
     min-width: 30px;
     box-sizing: border-box;
     line-height: 1;
-    height: auto; 
+    height: auto;
 }
 
 .movie__actions {
@@ -229,11 +229,11 @@ button[data-tooltip]:hover::after {
     display: inline-block;
     padding: 10px 20px;
     margin: 2px;
-    background-color: #333333; 
+    background-color: #333333;
     color: #eee;
     border-radius: 20px;
     font-size: 13px;
-    white-space: nowrap; 
+    white-space: nowrap;
     min-width: 60px;
     border: 1px solid #eee;
 }
