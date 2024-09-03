@@ -2,13 +2,14 @@ import React from 'react';
 import { useKoreanMoviesQuery } from '../../../../hooks/useKoreanMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../../../../common/Spinner/Spinner';
 import './Banner.style.css';
 
 const Banner = () => {
     const { data, isLoading, error, isError } = useKoreanMoviesQuery();
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Spinner />;
     }
 
     if (isError) {
