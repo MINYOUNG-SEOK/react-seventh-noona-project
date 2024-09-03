@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 사용하여 페이지 이동
 import './MovieCard.style.css';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useMovieRatingQuery } from '../../hooks/useMovieRating';
@@ -7,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
+    const navigate = useNavigate();
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie?.poster_path}`;
 
     const { data: genres = [] } = useMovieGenreQuery();
@@ -25,12 +27,17 @@ const MovieCard = ({ movie }) => {
     }, {});
 
     const genreNames =
-        movie?.genre_ids?.map((id) => genreMap[id]).filter(Boolean).slice(0, maxGenres).join(' • ') || '장르 정보 없음';
+        movie?.genre_ids?.map((id) => genreMap[id]).filter(Boolean).slice(0, maxGenres) || ['장르 정보 없음'];
 
     const formattedRating = movie?.vote_average?.toFixed(2) || '평점 없음';
 
+    
+    const handleCardClick = () => {
+        navigate(`/movies/${movie.id}`);
+    };
+
     return (
-        <div className="movie__cards">
+        <div className="movie__cards" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
             <div
                 className="movie__card"
                 style={{
@@ -42,7 +49,13 @@ const MovieCard = ({ movie }) => {
                         <h3 className="movie__title">{movie?.title || '제목 없음'}</h3>
                         <div className="movie__details">
                             <span className="movie__rating">⭐{formattedRating}</span>
-                            <span className="movie__genre">{genreNames}</span>
+                            <div className="movie__genres">
+                                {genreNames.map((genre, index) => (
+                                    <span key={index} className="movie__genre">
+                                        #{genre}
+                                    </span>
+                                ))}
+                            </div>
                             <div className="movie__info-row">
                                 <span className="movie__duration">{formattedRuntime}</span>
                                 <span className="movie__age-rating">{rating}</span>
@@ -53,7 +66,11 @@ const MovieCard = ({ movie }) => {
                                 <button className="play-button" aria-label="Play">
                                     <FontAwesomeIcon icon={faPlay} />
                                 </button>
-                                <button className="add-button" aria-label="Add to List" data-tooltip="찜한 리스트에 추가">
+                                <button
+                                    className="add-button"
+                                    aria-label="Add to List"
+                                    data-tooltip="찜한 리스트에 추가"
+                                >
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
