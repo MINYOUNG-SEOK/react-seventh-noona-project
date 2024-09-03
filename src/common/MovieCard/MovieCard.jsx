@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 사용하여 페이지 이동
+import { useNavigate } from 'react-router-dom';
 import './MovieCard.style.css';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useMovieRatingQuery } from '../../hooks/useMovieRating';
@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie?.poster_path}`;
 
     const { data: genres = [] } = useMovieGenreQuery();
@@ -31,9 +31,8 @@ const MovieCard = ({ movie }) => {
 
     const formattedRating = movie?.vote_average?.toFixed(2) || '평점 없음';
 
-    
     const handleCardClick = () => {
-        navigate(`/movies/${movie.id}`);
+        navigate(`/movies/${movie.id}`); 
     };
 
     return (
