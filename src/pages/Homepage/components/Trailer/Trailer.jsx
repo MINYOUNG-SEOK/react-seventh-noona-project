@@ -1,9 +1,9 @@
 import React from 'react';
-import { useMovieTrailer } from '../../../../hooks/useTrailerMovies';
+import { useMovieTrailerQuery } from '../../../../hooks/useMovieTrailer';
 import Spinner from '../../../../common/Spinner/Spinner';
 
 const Trailer = ({ movieId }) => {
-    const { data: trailer, error, isLoading } = useMovieTrailer(movieId); 
+    const { data: trailer, error, isLoading } = useMovieTrailerQuery(movieId); 
 
     if (isLoading) {
         return <Spinner />
