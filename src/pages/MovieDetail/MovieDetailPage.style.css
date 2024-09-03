@@ -1,0 +1,38 @@
+.movie-detail-page {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr; /* 왼쪽, 중앙, 오른쪽 비율 */
+    gap: 20px; 
+    padding: 20px;
+}
+
+.movie-left-up {
+    grid-column: 1;
+}
+
+.movie-left-down {
+    grid-column: 2;
+}
+
+.movie-right {
+    grid-column: 3; 
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    margin-right: 5px;
+}
+
+.tabs button:last-child {
+    margin-right: 0;
+}
