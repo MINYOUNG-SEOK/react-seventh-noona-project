@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTopRatedMoviesQuery } from '../../../../hooks/useTopRatedMovies';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
+import Spinner from '../../../../common/Spinner/Spinner';
 
 const TopRatedMovieSlide = () => {
     const { data, isLoading, isError, error } = useTopRatedMoviesQuery();
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Spinner />;
     if (isError) {
         console.error('Error:', error);
         return <div>Error fetching data</div>;
