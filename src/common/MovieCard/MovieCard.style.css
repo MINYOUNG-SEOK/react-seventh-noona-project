@@ -229,13 +229,13 @@ button[data-tooltip]:hover::after {
     display: inline-block;
     padding: 10px 20px;
     margin: 2px;
-    background-color: #3b82f6; 
+    background-color: #333333; 
     color: #eee;
     border-radius: 20px;
     font-size: 13px;
     white-space: nowrap; 
     min-width: 60px;
-    border: 2px solid #91b9fa;
+    border: 2px solid #eee;
 }
 
 .movie__genre:not(:last-child) {
