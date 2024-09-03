@@ -5,8 +5,11 @@ import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import MovieCard from '../../common/MovieCard/MovieCard';
+import Spinner from '../../common/Spinner/Spinner';
 import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css';
+
+
 
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
@@ -74,7 +77,7 @@ const MoviePage = () => {
   const totalPages = movies?.total_pages || 1;
 
   if (isLoading || genresLoading) {
-    return <p>로딩 중...</p>;
+    return <Spinner />;
   }
 
   if (isError) {
