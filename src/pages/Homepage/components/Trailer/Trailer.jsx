@@ -3,7 +3,7 @@ import { useMovieTrailerQuery } from '../../../../hooks/useMovieTrailer';
 import Spinner from '../../../../common/Spinner/Spinner';
 
 const Trailer = ({ movieId }) => {
-    const { data: trailer, error, isLoading } = useMovieTrailerQuery(movieId); 
+    const { data: trailer, error, isLoading } = useMovieTrailerQuery(movieId);
 
     if (isLoading) {
         return <Spinner />
