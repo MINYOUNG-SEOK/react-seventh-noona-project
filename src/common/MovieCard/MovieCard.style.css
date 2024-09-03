@@ -5,6 +5,7 @@
 .movie__card {
     width: 220px;
     height: 330px;
+    max-width: 300px;
     border-radius: 10px;
     background-size: cover;
     background-position: center;
@@ -119,19 +120,10 @@
     min-width: 25px;
     box-sizing: border-box;
     line-height: 0.6;
-    /* 줄 간격 최소화 */
     height: auto;
-    /* 자동 높이 */
     position: relative;
-    /* 상대 위치 사용 */
     top: -1px;
-    /* 요소를 위로 살짝 올리기 */
 }
-
-
-
-
-
 
 .movie__actions {
     display: flex;

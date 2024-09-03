@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMovieTrailerQuery } from '../../../../hooks/useMovieTrailer';
 import Spinner from '../../../../common/Spinner/Spinner';
+import './Trailer.style.css';
 
 const Trailer = ({ movieId }) => {
     const { data: trailer, error, isLoading } = useMovieTrailerQuery(movieId);

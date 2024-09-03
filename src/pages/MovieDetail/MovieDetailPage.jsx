@@ -1,32 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './MovieDetailPage.style.css';
 import Trailer from '../Homepage/components/Trailer/Trailer';
-// import Details from '../../components/Details/Details';
-// import Reviews from '../../components/Reviews/Reviews';
-// import Recommendations from '../../components/Recommendations/Recommendations';
+import Reviews from '../Homepage/components/Reviews/Reviews';
+import Recommendations from '../Homepage/components/Recommendations/Recommendations';
 
 const MovieDetailPage = () => {
     const { id } = useParams();
+    const [activeTab, setActiveTab] = useState('reviews');
+
     return (
         <div className="movie-detail-page">
-            <div className="movie-left-up">
-                <p>예고편 영역</p>
-                <Trailer movieId={id} />
-            </div>
+            <div className='movie-left'>
+                <div className="movie-left-up">
+                    <Trailer movieId={id} />
+                </div>
 
-            <div className="movie-left-down">
-
-                <p>시놉시스, 장르, 출연진, 감독</p>
+                <div className="movie-left-down">
+                    영화 정보 영역
+                </div>
             </div>
 
             <div className="movie-right">
                 <div className="tabs">
-                    <button>리뷰</button>
-                    <button>추천 콘텐츠</button>
+                    <button onClick={() => setActiveTab('reviews')}>리뷰</button>
+                    <button onClick={() => setActiveTab('recommendations')}>추천 콘텐츠</button>
                 </div>
-                {/* <Reviews />
-                <Recommendations /> */}
+                {activeTab === 'reviews' ? (
+                    <Reviews movieId={id} />
+                ) : (
+                    <div className="recommendation-container detail-recommendations">
+                        <Recommendations movieId={id} />
+                    </div>
+                )}
             </div>
         </div>
     );

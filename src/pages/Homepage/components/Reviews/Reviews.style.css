@@ -1,0 +1,56 @@
+.reviews {
+    padding: 20px;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.sort-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.review {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review h3 {
+    font-size: 15px;
+    color: #999
+}
+
+.review p {
+    margin: 0;
+    font-size: 15px;
+    color: #999;
+}
+
+.review .content {
+    white-space: pre-line;
+}
+
+.review .content button {
+    background: none;
+    border: none;
+    color: #1e90ff;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.rating {
+    font-size: 18px;
+    color: #f1c40f;
+    display: flex;
+}
