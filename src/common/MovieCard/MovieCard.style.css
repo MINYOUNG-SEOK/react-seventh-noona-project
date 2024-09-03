@@ -235,7 +235,7 @@ button[data-tooltip]:hover::after {
     font-size: 13px;
     white-space: nowrap; 
     min-width: 60px;
-    border: 2px solid #eee;
+    border: 1px solid #eee;
 }
 
 .movie__genre:not(:last-child) {
