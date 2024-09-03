@@ -15,7 +15,7 @@ const fetchMovieTrailer = async ({ queryKey }) => {
     return trailers.length > 0 ? trailers[0] : null;
 };
 
-export const useMovieTrailer = (movieId) => {
+export const useMovieTrailerQuery = (movieId) => {
     return useQuery({
         queryKey: ['movieTrailer', movieId],
         queryFn: fetchMovieTrailer,
