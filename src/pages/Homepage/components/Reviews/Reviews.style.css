@@ -1,52 +1,114 @@
 .reviews {
     padding: 20px;
-    background-color: #1c1c1c;
-    color: #ffffff;
+    color: #eee;
     border-radius: 8px;
 }
 
-.sort-options {
+.rating-sort-container {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between; 
     margin-bottom: 20px;
+}
+
+.average-rating-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.stars {
+    font-size: 24px;
+    color: #f1c40f;
+    display: flex;
+}
+
+.total-ratings {
+    font-size: 16px;
+    color: #999;
+}
+
+.average-rating {
+    font-size: 28px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.sort-options {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #eee;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #555; 
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sort-options:focus {
+    border: 1px solid #999;
+   
+}
+
+.sort-options option {
+    background-color: #333;
+    color: #eee; 
+    font-weight: bold;
 }
 
 .review {
     padding: 15px;
     margin-bottom: 10px;
-    background-color: #2c2c2c;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .review-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
-.review h3 {
+.review h3.author {
     font-size: 15px;
-    color: #999
+    font-weight: normal;
+    color: #999;
 }
 
-.review p {
-    margin: 0;
+.separator {
+    color: #999;
+}
+
+.review .date {
     font-size: 15px;
     color: #999;
 }
 
 .review .content {
     white-space: pre-line;
+    font-size: 16px;
+    color: #eee;
+    position: relative;
+    padding-bottom: 40px; 
 }
 
-.review .content button {
+.review .toggle-button {
+    color: #999;
     background: none;
     border: none;
-    color: #1e90ff;
+    font-weight: bolder;
     cursor: pointer;
-    font-size: 14px;
-    margin-left: 5px;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.review_row {
+    border-bottom: 1px solid #999;
 }
 
 .rating {
