@@ -122,3 +122,9 @@
     color: #f1c40f;
     display: flex;
 }
+
+@media (max-width: 1024px) {
+    .reviews {
+        padding: 0;
+    }
+}

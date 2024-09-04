@@ -85,7 +85,7 @@
 @media (max-width: 1024px) {
     .movie-detail-page {
         flex-direction: column;
-        padding: 20px 15px;
+        padding: 0;
     }
 
     .movie-left {
@@ -96,7 +96,7 @@
     .movie-right {
         margin-top: 20px;
         flex: unset;
-        width: calc(100% - 30px);
-        /* padding: 0 15px; */
+        padding: 0;
+
     }
 }
