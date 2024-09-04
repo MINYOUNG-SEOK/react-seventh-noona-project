@@ -42,7 +42,7 @@ const Reviews = ({ movieId }) => {
                             </span>
                         ))}
                     </div>
-                    <span className="total-ratings">{totalRatings.toLocaleString()}개 평점</span>
+                    <span className="total-ratings">총 {totalRatings.toLocaleString()}개 평점</span>
                     <span className="average-rating">{convertedAverageRating.toFixed(1)}</span>
                 </div>
 
