@@ -33,7 +33,7 @@ const MovieCard = ({ movie }) => {
 
     const handlePlayClick = (e) => {
         e.stopPropagation();
-        window.location.href = 'https://www.netflix.com/login';
+        window.location.href = 'https://www.netflix.com/kr/login';
     };
 
     const handleInfoClick = (e) => {
