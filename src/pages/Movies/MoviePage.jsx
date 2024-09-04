@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import MovieCard from '../../common/MovieCard/MovieCard';
@@ -20,6 +20,8 @@ const MoviePage = () => {
   const [page, setPage] = useState(1);
 
   const inputRef = useRef(null);
+  const navigate = useNavigate(); 
+
 
   const { data: movies, isLoading, refetch, isError } = useSearchMovieQuery({
     keyword,
@@ -56,6 +58,8 @@ const MoviePage = () => {
       setPage(1);
       setInputValue('');
       inputRef.current.blur();
+    } else {
+      navigate('/movies');
     }
   };
 
