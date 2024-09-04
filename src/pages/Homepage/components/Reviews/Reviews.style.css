@@ -7,8 +7,12 @@
 .rating-sort-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin-bottom: 20px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .average-rating-container {
@@ -38,23 +42,22 @@
 .sort-options {
     padding: 8px;
     border-radius: 5px;
-    background-color: #333;
+    background-color: #1e1e1e;
     color: #eee;
     cursor: pointer;
     outline: none;
-    border: 1px solid #555; 
+    border: 1px solid #555;
     font-size: 15px;
     font-weight: bold;
 }
 
 .sort-options:focus {
     border: 1px solid #999;
-   
 }
 
 .sort-options option {
     background-color: #333;
-    color: #eee; 
+    color: #eee;
     font-size: 15px;
 }
 
@@ -92,7 +95,7 @@
     font-size: 16px;
     color: #eee;
     position: relative;
-    padding-bottom: 40px; 
+    padding-bottom: 40px;
 }
 
 .review .toggle-button {
