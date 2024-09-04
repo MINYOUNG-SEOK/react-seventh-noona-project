@@ -3,7 +3,7 @@ import api from '../utils/api';
 
 const fetchMovieRecommendations = async (id) => {
   try {
-    const response = await api.get(`/movie/${id}/recommendations`);
+    const response = await api.get(`/movie/${id}/recommendations?language=ko-KR`);
     console.log("API Response:", response.data);
     return response.data.results;
   } catch (error) {
