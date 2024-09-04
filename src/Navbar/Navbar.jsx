@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const categories = [
     { href: '/', label: '홈' },
-    { href: '/series', label: '시리즈' },
+    // { href: '/series', label: '시리즈' },
     { href: '/movies', label: '영화' },
     { href: '/my-list', label: '내가 찜한 리스트' },
     { href: '/languages', label: '언어별로 찾아보기' },
