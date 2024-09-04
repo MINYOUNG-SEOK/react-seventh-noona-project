@@ -5,7 +5,7 @@ import api from '../utils/api';
 const fetchMovieTrailer = async ({ queryKey }) => {
     const [_, movieId] = queryKey;
     const response = await api.get(
-        `https://api.themoviedb.org/3/movie/${movieId}/videos`
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?language=ko-KR`
     );
 
     const trailers = response.data.results.filter(
