@@ -8,35 +8,54 @@ import Recommendations from '../Homepage/components/Recommendations/Recommendati
 const MovieDetailPage = () => {
     const { id } = useParams();
     const [activeTab, setActiveTab] = useState('reviews');
+    const [fade, setFade] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    const handleTabChange = (tab) => {
+        setFade(false); 
+        setTimeout(() => {
+            setActiveTab(tab);
+            setFade(true);
+        }, 200);
+    };
+
     return (
         <div className="movie-detail-page">
-            <div className='movie-left'>
+            <div className="movie-left">
                 <div className="movie-left-up">
                     <Trailer movieId={id} />
                 </div>
 
-                <div className="movie-left-down">
-                    영화 정보 영역
-                </div>
+                <div className="movie-left-down">영화 정보 영역</div>
             </div>
 
             <div className="movie-right">
                 <div className="tabs">
-                    <button onClick={() => setActiveTab('reviews')}>리뷰</button>
-                    <button onClick={() => setActiveTab('recommendations')}>추천 콘텐츠</button>
+                    <button
+                        className={`tab-button ${activeTab === 'reviews' ? 'active' : ''}`}
+                        onClick={() => handleTabChange('reviews')}
+                    >
+                        리뷰
+                    </button>
+                    <button
+                        className={`tab-button ${activeTab === 'recommendations' ? 'active' : ''}`}
+                        onClick={() => handleTabChange('recommendations')}
+                    >
+                        추천 콘텐츠
+                    </button>
                 </div>
-                {activeTab === 'reviews' ? (
-                    <Reviews movieId={id} />
-                ) : (
-                    <div className="recommendation-container detail-recommendations">
-                        <Recommendations movieId={id} />
-                    </div>
-                )}
+                <div className={`tab-content ${fade ? 'fade-in' : 'fade-out'}`}>
+                    {activeTab === 'reviews' ? (
+                        <Reviews movieId={id} />
+                    ) : (
+                        <div className="recommendation-container detail-recommendations">
+                            <Recommendations movieId={id} />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
