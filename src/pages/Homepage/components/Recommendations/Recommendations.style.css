@@ -1,32 +1,22 @@
 .recommendations-container {
     display: flex;
     justify-content: center;
-    padding: 10px;
     background-color: #000;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .recommendations-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 0;
-    max-width: 100%;
+    box-sizing: border-box;
 }
 
-.recommendations-list img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    aspect-ratio: 16/9;
-    object-fit: contain; 
-}
 
 @media (max-width: 1024px) {
     .recommendations-list {
-        grid-template-columns: repeat(4, 1fr); 
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -38,6 +28,6 @@
 
 @media (max-width: 480px) {
     .recommendations-list {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
 }

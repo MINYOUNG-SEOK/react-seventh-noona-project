@@ -11,7 +11,7 @@
 
 .slide__container {
     display: flex;
-    gap: 13px;
+    gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
     white-space: nowrap;
@@ -95,7 +95,5 @@
         font-size: 40px;
     }
 
-    .slide__container {
-        gap: 5px;
-    }
+
 }

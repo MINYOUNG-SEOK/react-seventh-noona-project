@@ -4,8 +4,10 @@ import './MovieDetailPage.style.css';
 import Trailer from '../Homepage/components/Trailer/Trailer';
 import Reviews from '../Homepage/components/Reviews/Reviews';
 import Recommendations from '../Homepage/components/Recommendations/Recommendations';
+import MovieInfoBox from '../Homepage/components/MovieInfoBox/MovieInfoBox';
+import MovieDetailBox from '../Homepage/components/MovieDetailBox/MovieDetailBox';
 
-const MovieDetailPage = () => {
+const MovieDetailPage = ({ movie }) => {
     const { id } = useParams();
     const [activeTab, setActiveTab] = useState('reviews');
     const [fade, setFade] = useState(false);
@@ -15,7 +17,7 @@ const MovieDetailPage = () => {
     }, []);
 
     const handleTabChange = (tab) => {
-        setFade(false); 
+        setFade(false);
         setTimeout(() => {
             setActiveTab(tab);
             setFade(true);
@@ -27,9 +29,9 @@ const MovieDetailPage = () => {
             <div className="movie-left">
                 <div className="movie-left-up">
                     <Trailer movieId={id} />
+                    <MovieInfoBox movieId={id} />
+                    <MovieDetailBox movieId={id} />
                 </div>
-
-                <div className="movie-left-down">영화 정보 영역</div>
             </div>
 
             <div className="movie-right">

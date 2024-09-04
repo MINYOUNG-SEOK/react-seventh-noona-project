@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MovieCard.style.css';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const [isFirstClick, setIsFirstClick] = useState(true);
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie?.poster_path}`;
 
     const { data: genres = [] } = useMovieGenreQuery();
@@ -37,18 +38,36 @@ const MovieCard = ({ movie }) => {
     };
 
     const handleInfoClick = (e) => {
-        e.stopPropagation(); 
-        navigate(`/movies/${movie.id}`); 
+        e.stopPropagation();
+        if (!isFirstClick) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+            navigate(`/movies/${movie.id}`);
+        } else {
+            setIsFirstClick(false);
+        }
     };
+
+
+    const handleCardClick = (e) => {
+        if (isFirstClick) {
+            setIsFirstClick(false);
+        } else {
+            e.stopPropagation();
+        }
+    };
+
 
     return (
         <div className="movie__cards" style={{ cursor: 'pointer' }}>
-            <div
-                className="movie__card"
-                style={{
-                    backgroundImage: `url(${imageUrl})`,
-                }}
-            >
+            <div className="movie__card" onClick={handleCardClick}>
+                <img
+                    src={imageUrl}
+                    alt={movie?.title || '제목 없음'}
+                    className="movie__image"
+                />
                 <div className="overlay">
                     <div className="overlay__content">
                         <h3 className="movie__title">{movie?.title || '제목 없음'}</h3>
@@ -68,10 +87,10 @@ const MovieCard = ({ movie }) => {
                         </div>
                         <div className="movie__actions">
                             <div className="left-buttons">
-                            <button
+                                <button
                                     className="play-button"
                                     aria-label="Play"
-                                    onClick={handlePlayClick} 
+                                    onClick={handlePlayClick}
                                 >
                                     <FontAwesomeIcon icon={faPlay} />
                                 </button>
@@ -83,7 +102,12 @@ const MovieCard = ({ movie }) => {
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
-                            <button className="info-button" aria-label="More Info" data-tooltip="상세 정보" onClick={handleInfoClick}>
+                            <button
+                                className="info-button"
+                                aria-label="More Info"
+                                data-tooltip="상세 정보"
+                                onClick={handleInfoClick}
+                            >
                                 <FontAwesomeIcon icon={faAngleDown} />
                             </button>
                         </div>
@@ -92,6 +116,7 @@ const MovieCard = ({ movie }) => {
             </div>
         </div>
     );
+
 };
 
 export default MovieCard;

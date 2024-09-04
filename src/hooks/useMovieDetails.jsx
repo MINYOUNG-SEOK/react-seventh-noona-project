@@ -1,3 +1,4 @@
+// useMovieDetailsQuery.js
 import { useQuery } from '@tanstack/react-query';
 import api from '../utils/api';
 
@@ -6,9 +7,10 @@ const fetchMovieDetails = async (movieId) => {
         const response = await api.get(`/movie/${movieId}`, {
             params: { language: 'ko-KR' },
         });
+        console.log('Fetched movie details:', response.data); // 콘솔 로그 추가
         return response.data;
     } catch (error) {
-        console.error("Error fetching movie details", error);
+        console.error('Error fetching movie details:', error);
         throw error;
     }
 };
@@ -17,9 +19,6 @@ export const useMovieDetailsQuery = (movieId) => {
     return useQuery({
         queryKey: ['movie-details', movieId],
         queryFn: () => fetchMovieDetails(movieId),
-        select: (result) => ({
-            runtime: result.runtime || 0,
-        }),
         staleTime: 300000,
         onSuccess: (data) => console.log('Fetched movie details:', data),
         onError: (error) => console.error('Fetching error:', error),

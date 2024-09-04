@@ -31,7 +31,8 @@ const Reviews = ({ movieId }) => {
     return (
         <div className="reviews">
             <div className="rating-sort-container">
-                <div className="average-rating-container">
+                수정 할 부분 !
+                {/* <div className="average-rating-container">
                     <div className="stars">
                         {Array.from({ length: 5 }, (_, index) => (
                             <span
@@ -44,7 +45,7 @@ const Reviews = ({ movieId }) => {
                     </div>
                     <span className="total-ratings">총 {totalRatings.toLocaleString()}개 평점</span>
                     <span className="average-rating">{convertedAverageRating.toFixed(1)}</span>
-                </div>
+                </div> */}
 
                 <select className="sort-options" onChange={(e) => setSortOrder(e.target.value)}>
                     <option value="latest">최신순</option>

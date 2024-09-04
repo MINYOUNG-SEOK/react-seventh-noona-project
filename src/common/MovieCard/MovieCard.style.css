@@ -3,18 +3,23 @@
 }
 
 .movie__card {
-    width: 220px;
-    height: 330px;
-    max-width: 300px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: auto;
+    max-width: 220px;
     position: relative;
     transition: transform 0.3s ease;
     cursor: pointer;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
 }
+
+.movie__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 
 .movie__card:hover {
     transform: scale(1.05);
@@ -68,7 +73,6 @@
     margin-bottom: 8px;
     line-height: 1.2;
     word-wrap: break-word;
-    overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
