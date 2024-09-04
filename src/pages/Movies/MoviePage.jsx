@@ -148,8 +148,8 @@ const MoviePage = () => {
         <ReactPaginate
           nextLabel={<FontAwesomeIcon icon={faChevronRight} className="page-arrow" />}
           onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          marginPagesDisplayed={0}
           pageCount={totalPages}
           previousLabel={<FontAwesomeIcon icon={faChevronLeft} className="page-arrow" />}
           pageClassName="page-item"
