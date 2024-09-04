@@ -97,6 +97,6 @@
         margin-top: 20px;
         flex: unset;
         width: calc(100% - 30px);
-        padding: 0 15px;
+        /* padding: 0 15px; */
     }
 }
