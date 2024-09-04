@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './MovieDetailPage.style.css';
 import Trailer from '../Homepage/components/Trailer/Trailer';
@@ -8,6 +8,10 @@ import Recommendations from '../Homepage/components/Recommendations/Recommendati
 const MovieDetailPage = () => {
     const { id } = useParams();
     const [activeTab, setActiveTab] = useState('reviews');
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="movie-detail-page">
