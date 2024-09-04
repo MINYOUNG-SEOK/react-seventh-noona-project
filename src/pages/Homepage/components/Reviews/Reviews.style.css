@@ -43,7 +43,7 @@
     cursor: pointer;
     outline: none;
     border: 1px solid #555; 
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -55,7 +55,7 @@
 .sort-options option {
     background-color: #333;
     color: #eee; 
-    font-weight: bold;
+    font-size: 15px;
 }
 
 .review {
