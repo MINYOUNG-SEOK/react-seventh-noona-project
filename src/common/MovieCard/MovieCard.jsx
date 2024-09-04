@@ -31,12 +31,18 @@ const MovieCard = ({ movie }) => {
 
     const formattedRating = movie?.vote_average?.toFixed(2) || '평점 없음';
 
-    const handleCardClick = () => {
+    const handlePlayClick = (e) => {
+        e.stopPropagation();
+        window.location.href = 'https://www.netflix.com/login';
+    };
+
+    const handleInfoClick = (e) => {
+        e.stopPropagation(); 
         navigate(`/movies/${movie.id}`); 
     };
 
     return (
-        <div className="movie__cards" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+        <div className="movie__cards" style={{ cursor: 'pointer' }}>
             <div
                 className="movie__card"
                 style={{
@@ -62,7 +68,11 @@ const MovieCard = ({ movie }) => {
                         </div>
                         <div className="movie__actions">
                             <div className="left-buttons">
-                                <button className="play-button" aria-label="Play">
+                            <button
+                                    className="play-button"
+                                    aria-label="Play"
+                                    onClick={handlePlayClick} 
+                                >
                                     <FontAwesomeIcon icon={faPlay} />
                                 </button>
                                 <button
@@ -73,7 +83,7 @@ const MovieCard = ({ movie }) => {
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
-                            <button className="info-button" aria-label="More Info" data-tooltip="상세 정보">
+                            <button className="info-button" aria-label="More Info" data-tooltip="상세 정보" onClick={handleInfoClick}>
                                 <FontAwesomeIcon icon={faAngleDown} />
                             </button>
                         </div>
