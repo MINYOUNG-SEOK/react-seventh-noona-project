@@ -147,6 +147,15 @@
     border: 2px solid #eee;
 }
 
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; 
+    color: #eee;
+    text-align: center;
+    margin-top: 20px;
+}
 
 @media (max-width: 1024px) {
     .movie-card {
