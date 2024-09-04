@@ -10,6 +10,11 @@ const Reviews = ({ movieId }) => {
     if (isLoading) return <Spinner />
     if (isError) return <div>리뷰를 불러오는 중 오류가 발생했습니다: {error.message}</div>;
 
+    const averageRating = data?.results?.reduce((acc, review) => acc + (review.author_details.rating || 0), 0) / data.results.length || 0;
+    const totalRatings = data?.results?.length || 0;
+
+    const convertedAverageRating = averageRating / 2;
+
     const sortedReviews = () => {
         if (!data || !data.results) return [];
 
@@ -25,11 +30,28 @@ const Reviews = ({ movieId }) => {
 
     return (
         <div className="reviews">
-            <select className="sort-options" onChange={(e) => setSortOrder(e.target.value)}>
-                <option value="latest">최신순</option>
-                <option value="high">평점 높은 순</option>
-                <option value="low">평점 낮은 순</option>
-            </select>
+            <div className="rating-sort-container">
+                <div className="average-rating-container">
+                    <div className="stars">
+                        {Array.from({ length: 5 }, (_, index) => (
+                            <span
+                                key={index}
+                                style={{ color: index < Math.round(convertedAverageRating) ? '#f1c40f' : '#555' }}
+                            >
+                                ★
+                            </span>
+                        ))}
+                    </div>
+                    <span className="total-ratings">{totalRatings.toLocaleString()}개 평점</span>
+                    <span className="average-rating">{convertedAverageRating.toFixed(1)}</span>
+                </div>
+
+                <select className="sort-options" onChange={(e) => setSortOrder(e.target.value)}>
+                    <option value="latest">최신순</option>
+                    <option value="high">평점 높은 순</option>
+                    <option value="low">평점 낮은 순</option>
+                </select>
+            </div>
 
             {sortedReviews().map((review) => (
                 <ReviewItem key={review.id} review={review} />
@@ -42,6 +64,8 @@ const ReviewItem = ({ review }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const maxLength = 150;
 
+    const convertedRating = (review.author_details.rating || 0) / 2;
+
     const contentPreview = review.content.length > maxLength
         ? `${review.content.slice(0, maxLength)}...`
         : review.content;
@@ -52,24 +76,26 @@ const ReviewItem = ({ review }) => {
                 {Array.from({ length: 5 }, (_, index) => (
                     <span
                         key={index}
-                        style={{ color: index < parseInt(review.author_details.rating || 0, 10) ? '#f1c40f' : '#555' }}
+                        style={{ color: index < Math.round(convertedRating) ? '#f1c40f' : '#555' }}
                     >
-                        {index < parseInt(review.author_details.rating || 0, 10) ? '★' : '☆'}
+                        {index < Math.round(convertedRating) ? '★' : '☆'}
                     </span>
                 ))}
             </div>
             <div className="review-header">
-                <h3>{review.author}</h3>
-                <p>{new Date(review.created_at).toLocaleDateString()}</p>
+                <h3 className="author">{review.author}</h3>
+                <span className="separator">•</span>
+                <p className="date">{new Date(review.created_at).toLocaleDateString()}</p>
             </div>
             <p className="content">
                 {isExpanded ? review.content : contentPreview}
                 {review.content.length > maxLength && (
-                    <button onClick={() => setIsExpanded(!isExpanded)}>
+                    <button className="toggle-button" onClick={() => setIsExpanded(!isExpanded)}>
                         {isExpanded ? '접기' : '더보기'}
                     </button>
                 )}
             </p>
+            <div className='review_row'></div>
         </div>
     );
 };
