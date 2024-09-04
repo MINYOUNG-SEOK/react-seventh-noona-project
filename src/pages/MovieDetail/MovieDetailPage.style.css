@@ -9,7 +9,7 @@
 }
 
 .movie-left {
-    flex: 3;
+    flex: 4;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -31,7 +31,7 @@
 }
 
 .movie-right {
-    flex: 2;
+    flex: 1.5;
     background-color: #000;
     padding: 0 20px;
     border-radius: 8px;
@@ -41,71 +41,60 @@
 .tabs {
     display: flex;
     margin-bottom: 20px;
-    border-bottom: 1px solid #444;
+    position: relative;
 }
 
-.tabs button {
+.tab-button {
     flex: 1;
-    padding: 10px 20px;
+    padding: 15px 30px;
     background: none;
     border: none;
-    color: #ffffff;
+    color: #999;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
-}
-
-.tabs button:hover,
-.tabs button:focus {
-    background-color: #333;
-}
-
-.tabs button.active {
+    transition: color 0.3s, background 0.3s;
+    position: relative;
+    outline: none;
     font-weight: bold;
-    border-bottom: 2px solid #ffcc00;
 }
 
-.detail-recommendations {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.tab-button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 80%;
+    height: 3px;
+    background: #eee;
+    transform: translateX(-50%) scaleX(0); 
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center; 
 }
 
-.recommendation-container {
-    background: none;
-    padding: 0;
-    margin: 0;
+.tab-button.active::after {
+    transform: translateX(-50%) scaleX(1); 
 }
 
-.recommendations-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.tab-button.active {
+    color: #eee;
 }
 
-
-
-
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .movie-detail-page {
         flex-direction: column;
+        padding: 20px 15px;
     }
 
     .movie-left {
         margin-right: 0;
+        padding: 0 15px;
     }
 
     .movie-right {
-        margin-top: 20px;
-    }
-
-    .tabs {
-        justify-content: center;
-    }
-
-    .tabs button {
-        padding: 8px 16px;
-        font-size: 14px;
+        margin-top: 20px; 
+        flex: unset;
+        width: calc(100% - 30px); 
+        padding: 0 15px; 
     }
 }
