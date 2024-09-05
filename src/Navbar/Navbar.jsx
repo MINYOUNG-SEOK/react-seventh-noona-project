@@ -41,7 +41,7 @@ const Navbar = () => {
     }
   };
 
-  const isMoviePage = location.pathname.includes('/movies');
+  const isMoviePage = location.pathname === '/movies';
 
   return (
     <div className={`nav ${show ? 'nav__black' : ''}`}>
