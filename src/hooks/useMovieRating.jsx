@@ -27,7 +27,7 @@ export const useMovieRatingQuery = (movieId) => {
             const krRelease = result.results.find((release) => release.iso_3166_1 === 'KR');
             if (krRelease && krRelease.release_dates.length > 0) {
                 const certification = krRelease.release_dates[0].certification;
-                if (['12', '15', '19'].includes(certification)) {
+                if (['12', '15', '18', '19'].includes(certification)) {
                     return `${certification}+`;
                 }
                 return certification || '등급 정보 없음';
