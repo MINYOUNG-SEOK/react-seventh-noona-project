@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useKoreanMoviesQuery } from '../../../../hooks/useKoreanMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../../common/Spinner/Spinner';
 import './Banner.style.css';
 
 const Banner = () => {
+    const navigate = useNavigate(); 
     const { data, isLoading, error, isError } = useKoreanMoviesQuery();
 
     if (isLoading) {
@@ -34,6 +36,17 @@ const Banner = () => {
 
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie.backdrop_path}`;
 
+    const handlePlayClick = (e) => {
+        e.stopPropagation();
+        window.location.href = 'https://www.netflix.com/kr/login';
+    };
+
+    const handleInfoClick = (e) => {
+        e.stopPropagation();
+        navigate(`/movies/${movie.id}`); 
+    };
+
+
     return (
         <header
             className='banner'
@@ -49,12 +62,16 @@ const Banner = () => {
                 <h1 className='banner__title'>{movie?.title || movie?.name || movie?.original_name}</h1>
                 <h1 className='banner__description'>{movie?.overview}</h1>
                 <div className='banner__buttons'>
-                    <button className='banner__button'>
+                    <button
+                        className="banner__button"
+                        aria-label="Play"
+                        onClick={handlePlayClick}
+                    >
                         <FontAwesomeIcon icon={faPlay} className='banner__icon' />
                         재생
                     </button>
-                    <button className='banner__button'>
-                        <FontAwesomeIcon icon={faInfoCircle} className='banner__icon' />
+                    <button className='banner__button' onClick={handleInfoClick}>
+                        <FontAwesomeIcon icon={faAngleDown} className='banner__icon' />
                         상세 정보
                     </button>
                 </div>
