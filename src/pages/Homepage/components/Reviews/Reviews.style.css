@@ -1,6 +1,6 @@
 .reviews {
     padding: 20px;
-    color: #eee;
+    color: #fff;
     border-radius: 8px;
 }
 
@@ -23,13 +23,13 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
-    margin-top: -5px; 
+    margin-top: -5px;
 }
 
 .total-ratings {
     font-size: 18px;
     color: #999;
-    line-height: 1; 
+    line-height: 1;
 }
 
 .average-rating-container {
@@ -40,23 +40,17 @@
     line-height: 1;
 }
 
-.average-rating {
-    font-size: 18px;
-    font-weight: bold;
-    color: #eee;
-}
-
 .sort-options {
     padding: 8px 30px 8px 10px;
     border-radius: 5px;
     background-color: #000;
-    color: #eee;
+    color: #fff;
     cursor: pointer;
     outline: none;
     border: 1px solid #999;
     font-size: 16px;
     font-weight: bold;
-    appearance: none; 
+    appearance: none;
 }
 
 .sort-options:focus {
@@ -72,18 +66,18 @@
 .select-wrapper {
     position: relative;
     display: inline-block;
-    width: auto; 
+    width: auto;
 }
 
 .select-wrapper::after {
     content: '▼';
     position: absolute;
-    right: 10px; 
-    top: 50%;
+    right: 10px;
+    top: 47%;
     transform: translateY(-50%);
     pointer-events: none;
     color: #eee;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .review {
@@ -107,13 +101,13 @@
 }
 
 .review-header .separator {
-        margin: 2px; 
-        font-size: 15px;
-        font-weight: bold; 
-        color: #b0b0b0;
-        display: flex;
-        align-items: center;
-    }
+    margin: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #b0b0b0;
+    display: flex;
+    align-items: center;
+}
 
 .review .date {
     font-size: 15px;
