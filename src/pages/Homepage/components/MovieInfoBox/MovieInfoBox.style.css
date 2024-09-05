@@ -1,8 +1,18 @@
 .movie-info-box {
     padding: 20px;
-    /* background-color: #333; */
     border-radius: 0 0 10px 10px;
     color: #ffffff;
+}
+
+.movie-info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .movie-info-box .movie-title {
@@ -48,4 +58,3 @@
     height: 25px;
     box-sizing: border-box;
 }
-
