@@ -26,11 +26,31 @@ export const useMovieRatingQuery = (movieId) => {
         select: (result) => {
             const krRelease = result.results.find((release) => release.iso_3166_1 === 'KR');
             if (krRelease && krRelease.release_dates.length > 0) {
-                const certification = krRelease.release_dates[0].certification;
-                if (['12', '15', '18', '19'].includes(certification)) {
-                    return `${certification}+`;
+                let certification = krRelease.release_dates[0].certification;
+
+                certification = certification.toUpperCase();
+
+                // 특정 등 변환 처리
+                switch (certification) {
+                    case 'ALL':
+                    case 'All':
+                        certification = 'All';
+                        break;
+                    case '12':
+                        certification = '12+';
+                        break;
+                    case '15':
+                        certification = '15+';
+                        break;
+                    case '18':
+                    case '19':
+                        certification = '19+';
+                        break;
+                    default:
+                        certification = certification || '등급 정보 없음';
                 }
-                return certification || '등급 정보 없음';
+
+                return certification;
             }
             return '등급 정보 없음';
         },

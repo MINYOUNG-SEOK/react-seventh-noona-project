@@ -253,32 +253,27 @@ button[data-tooltip]:hover::after {
 
 .rating-all {
     background-color: #28a745;
-    color: #fff;  
+    color: #fff;
 }
 
 .rating-12 {
-    background-color: #ffc107; 
+    background-color: #ffc107;
     color: #000;
 }
 
 .rating-15 {
     background-color: #d2691e;
-    color: #fff; 
-}
-
-.rating-18 {
-    background-color: #dc3545; 
-    color: #fff; 
+    color: #fff;
 }
 
 .rating-19 {
-    background-color: #dc3545; 
-    color: #fff; 
+    background-color: #dc3545;
+    color: #fff;
 }
 
 .rating-default {
     background-color: #6c757d;
-    color: #fff;  
+    color: #fff;
 }
 
 

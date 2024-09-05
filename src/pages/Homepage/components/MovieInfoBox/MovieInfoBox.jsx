@@ -16,6 +16,7 @@ const MovieInfoBox = ({ movieId }) => {
 
     const ratingClass = {
         'ALL': 'rating-all',
+        'All': 'rating-all',
         '12+': 'rating-12',
         '15+': 'rating-15',
         '18+': 'rating-18',

@@ -17,13 +17,13 @@
 }
 
 .stars {
-    font-size: 24px;
+    font-size: 21px;
     color: #f1c40f;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
-    margin-top: -5px;
+    margin-top: 0px;
 }
 
 .total-ratings {
@@ -41,7 +41,7 @@
 }
 
 .sort-options {
-    padding: 8px 30px 8px 10px;
+    padding: 6px 30px 6px 8px;
     border-radius: 5px;
     background-color: #000;
     color: #fff;

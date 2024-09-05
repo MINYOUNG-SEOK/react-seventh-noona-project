@@ -13,7 +13,7 @@ const Reviews = ({ movieId }) => {
     const averageRating = data?.results?.reduce((acc, review) => acc + (review.author_details.rating || 0), 0) / data.results.length || 0;
     const totalRatings = data?.results?.length || 0;
 
-    const convertedAverageRating = averageRating;
+    const convertedAverageRating = averageRating / 2;
 
     const sortedReviews = () => {
         if (!data || !data.results) return [];
@@ -41,7 +41,7 @@ const Reviews = ({ movieId }) => {
                         ))}
                     </div>
                     <span className="total-ratings">총 {totalRatings.toLocaleString()}개 리뷰</span>
-           
+
                 </div>
 
                 <div className="select-wrapper">
@@ -68,7 +68,7 @@ const ReviewItem = ({ review }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const maxLength = 150;
 
-    const convertedRating = (review.author_details.rating || 0);
+    const convertedRating = (review.author_details.rating || 0) / 2;
 
     const contentPreview = review.content.length > maxLength
         ? `${review.content.slice(0, maxLength)}...`

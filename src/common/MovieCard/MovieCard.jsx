@@ -37,7 +37,7 @@ const MovieCard = ({ movie }) => {
         const checkIfMobile = () => {
             setIsMobile(window.innerWidth <= 768);
         };
- 
+
         checkIfMobile();
         window.addEventListener('resize', checkIfMobile);
 
@@ -75,8 +75,13 @@ const MovieCard = ({ movie }) => {
         }
     };
 
+    const handleImageError = (e) => {
+        e.target.src = "https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-thumbnail-graphic-illustration-vector-png-image_40966590.jpg";
+    };
+
     const ratingClass = {
         'ALL': 'rating-all',
+        'All': 'rating-all',
         '12+': 'rating-12',
         '15+': 'rating-15',
         '18+': 'rating-18',
@@ -90,6 +95,7 @@ const MovieCard = ({ movie }) => {
                     src={imageUrl}
                     alt={movie?.title || '제목 없음'}
                     className="movie__image"
+                    onError={handleImageError}
                 />
                 <div className="overlay">
                     <div className="overlay__content">

@@ -9,8 +9,6 @@ import Spinner from '../../common/Spinner/Spinner';
 import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css';
 
-
-
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
@@ -18,33 +16,36 @@ const MoviePage = () => {
   const genre = query.get('genre');
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [page, setPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState('popular');
 
   const inputRef = useRef(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
 
   const { data: movies, isLoading, refetch, isError } = useSearchMovieQuery({
     keyword,
     genre: selectedGenre,
     page,
+    sortOrder,
   });
 
   const { data: genres, isLoading: genresLoading } = useMovieGenreQuery();
 
   useEffect(() => {
     refetch();
-  }, [keyword, selectedGenre, page, refetch]);
+  }, [keyword, selectedGenre, page, sortOrder, refetch]);
 
   const handleGenreClick = (genreId) => {
     setSelectedGenre(genreId);
     setPage(1);
-    setQuery({ q: inputValue, genre: genreId, page: 1 });
+    setSortOrder('popular');
+    setQuery({ q: inputValue, genre: genreId, page: 1, sortOrder });
   };
 
   const handleShowAll = () => {
     setSelectedGenre(null);
     setPage(1);
-    setQuery({ q: inputValue, page: 1 });
+    setQuery({ q: inputValue, page: 1, sortOrder });
   };
 
   const handlePageClick = ({ selected }) => {
@@ -54,11 +55,12 @@ const MoviePage = () => {
 
   const handleSearch = () => {
     if (inputValue.trim()) {
-      setQuery({ q: inputValue, genre: selectedGenre, page: 1 });
+      setQuery({ q: inputValue, genre: selectedGenre, page: 1, sortOrder });
       setPage(1);
       setInputValue('');
       inputRef.current.blur();
     } else {
+      setSortOrder('popular');
       navigate('/movies');
     }
   };
@@ -77,6 +79,9 @@ const MoviePage = () => {
   const filteredMovies = movies?.results?.filter((movie) =>
     selectedGenre ? movie.genre_ids.includes(Number(selectedGenre)) : true
   ) || [];
+
+
+
 
   const totalPages = movies?.total_pages || 1;
 
@@ -126,6 +131,22 @@ const MoviePage = () => {
             </button>
           ))}
       </div>
+
+      {(keyword || selectedGenre) && (
+        <div className="filter-section">
+          <div className="sort-options-container">
+            <select
+              className="sort-options"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
+              <option value="popular">인기 높은 순</option>
+              <option value="least-popular">인기 낮은 순</option>
+              <option value="release">개봉일 순</option>
+            </select>
+          </div>
+        </div>
+      )}
 
       {!isLoading && filteredMovies && filteredMovies.length === 0 && (
         <p className="no-results">검색 결과가 없습니다.</p>
