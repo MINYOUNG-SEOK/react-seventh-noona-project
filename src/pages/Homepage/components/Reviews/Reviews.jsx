@@ -88,7 +88,7 @@ const ReviewItem = ({ review }) => {
             </div>
             <div className="review-header">
                 <h3 className="author">{review.author}</h3>
-                <span className="separator">•</span>
+                <span className="separator">|</span>
                 <p className="date">{new Date(review.created_at).toLocaleDateString()}</p>
             </div>
             <p className="content">
