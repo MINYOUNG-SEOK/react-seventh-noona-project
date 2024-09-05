@@ -13,7 +13,7 @@ const Reviews = ({ movieId }) => {
     const averageRating = data?.results?.reduce((acc, review) => acc + (review.author_details.rating || 0), 0) / data.results.length || 0;
     const totalRatings = data?.results?.length || 0;
 
-    const convertedAverageRating = averageRating / 2;
+    const convertedAverageRating = averageRating;
 
     const sortedReviews = () => {
         if (!data || !data.results) return [];
@@ -31,27 +31,30 @@ const Reviews = ({ movieId }) => {
     return (
         <div className="reviews">
             <div className="rating-sort-container">
-                수정 할 부분 !
-                {/* <div className="average-rating-container">
+                <div className="average-rating-container">
                     <div className="stars">
                         {Array.from({ length: 5 }, (_, index) => (
                             <span
                                 key={index}
                                 style={{ color: index < Math.round(convertedAverageRating) ? '#f1c40f' : '#555' }}
-                            >
-                                ★
-                            </span>
+                            >★</span>
                         ))}
                     </div>
-                    <span className="total-ratings">총 {totalRatings.toLocaleString()}개 평점</span>
-                    <span className="average-rating">{convertedAverageRating.toFixed(1)}</span>
-                </div> */}
+                    <span className="total-ratings">총 {totalRatings.toLocaleString()}개 리뷰</span>
+           
+                </div>
 
-                <select className="sort-options" onChange={(e) => setSortOrder(e.target.value)}>
-                    <option value="latest">최신순</option>
-                    <option value="high">평점 높은 순</option>
-                    <option value="low">평점 낮은 순</option>
-                </select>
+                <div className="select-wrapper">
+                    <select
+                        className="sort-options"
+                        value={sortOrder}
+                        onChange={(e) => setSortOrder(e.target.value)}
+                    >
+                        <option value="latest">최신순</option>
+                        <option value="high">평점 높은 순</option>
+                        <option value="low">평점 낮은 순</option>
+                    </select>
+                </div>
             </div>
 
             {sortedReviews().map((review) => (
@@ -65,7 +68,7 @@ const ReviewItem = ({ review }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const maxLength = 150;
 
-    const convertedRating = (review.author_details.rating || 0) / 2;
+    const convertedRating = (review.author_details.rating || 0);
 
     const contentPreview = review.content.length > maxLength
         ? `${review.content.slice(0, maxLength)}...`
