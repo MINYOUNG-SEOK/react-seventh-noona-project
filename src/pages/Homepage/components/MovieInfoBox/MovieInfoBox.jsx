@@ -38,7 +38,9 @@ const MovieInfoBox = ({ movieId }) => {
                         ? `${Math.floor(movie.runtime / 60)}시간 ${movie.runtime % 60}분`
                         : '상영 시간 없음'}
                 </span>
-                <span className={`movie-rating-info ${ratingClass}`}>{rating}</span>
+                {rating !== '등급 정보 없음' && (
+                    <span className={`movie-rating-info ${ratingClass}`}>{rating}</span>
+                )}
             </div>
         </div>
     );
