@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MovieCard.style.css';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
@@ -10,6 +10,7 @@ import { faPlay, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 const MovieCard = ({ movie }) => {
     const navigate = useNavigate();
     const [isFirstClick, setIsFirstClick] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie?.poster_path}`;
 
     const { data: genres = [] } = useMovieGenreQuery();
@@ -32,6 +33,19 @@ const MovieCard = ({ movie }) => {
 
     const formattedRating = movie?.vote_average?.toFixed(2) || '평점 없음';
 
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+ 
+        checkIfMobile();
+        window.addEventListener('resize', checkIfMobile);
+
+        return () => {
+            window.removeEventListener('resize', checkIfMobile);
+        };
+    }, []);
+
     const handlePlayClick = (e) => {
         e.stopPropagation();
         window.location.href = 'https://www.netflix.com/kr/login';
@@ -39,7 +53,7 @@ const MovieCard = ({ movie }) => {
 
     const handleInfoClick = (e) => {
         e.stopPropagation();
-        if (!isFirstClick) {
+        if (isMobile && !isFirstClick) {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
@@ -47,18 +61,19 @@ const MovieCard = ({ movie }) => {
             navigate(`/movies/${movie.id}`);
         } else {
             setIsFirstClick(false);
+            if (!isMobile) {
+                navigate(`/movies/${movie.id}`);
+            }
         }
     };
 
-
     const handleCardClick = (e) => {
-        if (isFirstClick) {
+        if (isFirstClick && isMobile) {
             setIsFirstClick(false);
         } else {
             e.stopPropagation();
         }
     };
-
 
     return (
         <div className="movie__cards" style={{ cursor: 'pointer' }}>
@@ -116,7 +131,6 @@ const MovieCard = ({ movie }) => {
             </div>
         </div>
     );
-
 };
 
 export default MovieCard;
