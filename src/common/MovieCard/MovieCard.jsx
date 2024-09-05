@@ -75,6 +75,13 @@ const MovieCard = ({ movie }) => {
         }
     };
 
+    const ratingClass = {
+        'ALL': 'rating-all',
+        '12+': 'rating-12',
+        '15+': 'rating-15',
+        '19+': 'rating-19',
+    }[rating] || 'rating-default';
+
     return (
         <div className="movie__cards" style={{ cursor: 'pointer' }}>
             <div className="movie__card" onClick={handleCardClick}>
@@ -97,7 +104,7 @@ const MovieCard = ({ movie }) => {
                             </div>
                             <div className="movie__info-row">
                                 <span className="movie__duration">{formattedRuntime}</span>
-                                <span className="movie__age-rating">{rating}</span>
+                                <span className={`movie__age-rating ${ratingClass}`}>{rating}</span>
                             </div>
                         </div>
                         <div className="movie__actions">
