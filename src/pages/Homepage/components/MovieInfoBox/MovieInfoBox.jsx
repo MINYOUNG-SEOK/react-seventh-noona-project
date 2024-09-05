@@ -19,10 +19,13 @@ const MovieInfoBox = ({ movieId }) => {
             <h2 className="movie-title">{movie?.title || '제목 없음'}</h2>
             <div className="movie-details">
                 <span className="movie-rating">⭐ {formattedRating}</span>
+                <span className="separator">•</span>
                 <span className="movie-genre">
                     {movie?.genres?.map((genre) => genre.name).join(', ') || '장르 정보 없음'}
                 </span>
+                <span className="separator">•</span>
                 <span className="movie-year">{movie?.release_date?.split('-')[0] || '연도 정보 없음'}년</span>
+                <span className="separator">•</span>
                 <span className="movie-duration">
                     {movie?.runtime
                         ? `${Math.floor(movie.runtime / 60)}시간 ${movie.runtime % 60}분`
