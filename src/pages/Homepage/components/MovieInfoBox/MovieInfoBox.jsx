@@ -14,6 +14,13 @@ const MovieInfoBox = ({ movieId }) => {
 
     const formattedRating = movie?.vote_average ? movie.vote_average.toFixed(2) : '평점 없음';
 
+    const ratingClass = {
+        'ALL': 'rating-all',
+        '12+': 'rating-12',
+        '15+': 'rating-15',
+        '19+': 'rating-19',
+    }[rating] || 'rating-default';
+
     return (
         <div className="movie-info-box">
             <h2 className="movie-title">{movie?.title || '제목 없음'}</h2>
@@ -31,7 +38,7 @@ const MovieInfoBox = ({ movieId }) => {
                         ? `${Math.floor(movie.runtime / 60)}시간 ${movie.runtime % 60}분`
                         : '상영 시간 없음'}
                 </span>
-                <span className="movie-rating-info">{rating}</span>
+                <span className={`movie-rating-info ${ratingClass}`}>{rating}</span>
             </div>
         </div>
     );
