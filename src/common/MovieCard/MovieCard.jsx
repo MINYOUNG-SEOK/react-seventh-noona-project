@@ -104,7 +104,9 @@ const MovieCard = ({ movie }) => {
                             </div>
                             <div className="movie__info-row">
                                 <span className="movie__duration">{formattedRuntime}</span>
-                                <span className={`movie__age-rating ${ratingClass}`}>{rating}</span>
+                                {rating !== '등급 정보 없음' && (
+                                    <span className={`movie__age-rating ${ratingClass}`}>{rating}</span>
+                                )}
                             </div>
                         </div>
                         <div className="movie__actions">
