@@ -18,6 +18,7 @@ const MovieInfoBox = ({ movieId }) => {
         'ALL': 'rating-all',
         '12+': 'rating-12',
         '15+': 'rating-15',
+        '18+': 'rating-18',
         '19+': 'rating-19',
     }[rating] || 'rating-default';
 
