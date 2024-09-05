@@ -30,7 +30,6 @@
 }
 
 .movie-info-box .movie-rating {
-    /* background-color: #333; */
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -39,7 +38,6 @@
 .movie-year,
 .movie-duration {
     padding: 5px 10px;
-    /* background-color: #333; */
     border-radius: 5px;
 }
 
@@ -57,4 +55,13 @@
     min-width: 25px;
     height: 25px;
     box-sizing: border-box;
+}
+
+.separator {
+    margin: -5px; 
+    font-size: 15px;
+    font-weight: bold; 
+    color: #b0b0b0;
+    display: flex;
+    align-items: center;
 }
