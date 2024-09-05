@@ -10,14 +10,13 @@
     text-align: center;
     flex-wrap: wrap;
     gap: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 }
 
 .movie-detail-box .genre-tag {
     display: inline-block;
     padding: 5px 7px;
     margin: 2px;
-    /* background-color: #333333; */
     color: #eee;
     border-radius: 15px;
     font-size: 14px;
@@ -31,7 +30,7 @@ h4 {
     font-size: 18px;
     margin-bottom: 10px;
     color: #ffffff;
-    border-left: 4px solid #e50914;
+    border-left: 4px solid #fff;
     padding-left: 10px;
 }
 
@@ -39,7 +38,7 @@ h4 {
     font-size: 16px;
     line-height: 1.6;
     color: #b0b0b0;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .movie-detail-box hr {
