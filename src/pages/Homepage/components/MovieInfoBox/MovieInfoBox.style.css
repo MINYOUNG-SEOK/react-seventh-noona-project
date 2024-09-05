@@ -42,7 +42,6 @@
 }
 
 .movie-info-box .movie-rating-info {
-    border: 1px solid #b0b0b0;
     padding: 0px 5Px;
     border-radius: 5px;
     font-size: 14px;
@@ -51,10 +50,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #eee;
+  
     min-width: 25px;
     height: 25px;
     box-sizing: border-box;
+    margin-top: 3px;
 }
 
 .separator {
@@ -64,4 +64,29 @@
     color: #b0b0b0;
     display: flex;
     align-items: center;
+}
+
+.rating-all {
+    background-color: #28a745;
+    color: #fff;  
+}
+
+.rating-12 {
+    background-color: #ffc107; 
+    color: #000;
+}
+
+.rating-15 {
+    background-color: #d2691e;
+    color: #fff; 
+}
+
+.rating-19 {
+    background-color: #dc3545; 
+    color: #fff; 
+}
+
+.rating-default {
+    background-color: #6c757d;
+    color: #fff;  
 }
