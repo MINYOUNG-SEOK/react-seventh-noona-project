@@ -251,6 +251,31 @@ button[data-tooltip]:hover::after {
     margin-right: 5px;
 }
 
+.rating-all {
+    background-color: #28a745;
+    color: #fff;  
+}
+
+.rating-12 {
+    background-color: #ffc107; 
+    color: #000;
+}
+
+.rating-15 {
+    background-color: #d2691e;
+    color: #fff; 
+}
+
+.rating-19 {
+    background-color: #dc3545; 
+    color: #fff; 
+}
+
+.rating-default {
+    background-color: #6c757d;
+    color: #fff;  
+}
+
 
 @media (max-width: 1024px) {
     .movie__card {
