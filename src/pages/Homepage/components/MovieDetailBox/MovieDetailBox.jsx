@@ -22,12 +22,12 @@ const MovieDetailBox = ({ movieId }) => {
         <div className="movie-detail-box">
             <h3>시놉시스</h3>
             <p>{movie?.overview || '시놉시스 정보 없음'}</p>
-            <h4>장르</h4>
+            {/* <h4>장르</h4>
             <div className="movie-genres">
                 {Array.isArray(genres) && genres.length > 0
                     ? genres.map((genre) => <span key={genre.id} className="genre-tag">#{genre.name}</span>)
                     : '장르 정보 없음'}
-            </div>
+            </div> */}
             <h4>예산</h4>
             <p>{budget}</p>
             <h4>출연진</h4>
