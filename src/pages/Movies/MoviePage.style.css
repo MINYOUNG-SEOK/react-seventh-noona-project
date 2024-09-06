@@ -2,8 +2,6 @@
     max-width: 1400px;
     margin: 0 auto;
     overflow-x: hidden;
-    /* 가로 스크롤 방지 */
-    box-sizing: border-box;
 }
 
 .movie-page .search-bar {
@@ -25,7 +23,6 @@
     font-size: 15px;
     border: 1px solid #eee;
     border-radius: 10px;
-    box-sizing: border-box;
 }
 
 .movie-page .input-icon {
@@ -203,6 +200,22 @@
         width: 200px;
         height: 290px;
     }
+
+    .movie-page .search-input-container {
+        width: 80%;
+    }
+
+    .movie-page .genre-section {
+        width: 80%;
+        padding: 0;
+        gap: 8px;
+    }
+
+    .movie-page .genre-section button {
+        padding: 8px 14px;
+        max-width: 120px;
+        height: 35px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -222,6 +235,21 @@
         width: 180px;
         height: 270px;
     }
+
+    .movie-page .search-input-container {
+        width: 80%;
+    }
+
+    .movie-page .genre-section {
+        gap: 8px;
+        width: 80%;
+    }
+
+    .movie-page .genre-section button {
+        font-size: 15px;
+        padding: 8px 10px;
+        height: 35px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -238,4 +266,24 @@
         width: 160px;
         height: 250px;
     }
+
+    .movie-page .search-input-container {
+        width: 80%;
+    }
+
+    .movie-page .genre-section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 0;
+        width: 80%;
+    }
+
+    .movie-page .genre-section button {
+        font-size: 14px;
+        padding: 5px 8px;
+        min-width: auto;
+        height: 30px;
+    }
+
 }
