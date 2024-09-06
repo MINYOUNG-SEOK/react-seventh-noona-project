@@ -2,6 +2,7 @@
     max-width: 1400px;
     margin: 0 auto;
     overflow-x: hidden;
+    /* 가로 스크롤 방지 */
     box-sizing: border-box;
 }
 
@@ -105,7 +106,7 @@
 .movie-page .sort-options-container::after {
     content: '▼';
     position: absolute;
-    right: 20px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -116,7 +117,7 @@
 .movie-page .sort-options {
     width: 110px;
     max-width: 110px;
-    padding: 10px 40px 10px 15px;
+    padding: 10px 30px 10px 15px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
@@ -125,7 +126,6 @@
     appearance: none;
     box-sizing: border-box;
     box-shadow: none;
-
 }
 
 .movie-page .movie-list-section {
@@ -171,7 +171,7 @@
     cursor: pointer;
 }
 
-.movie-page.page-item.active .page-link {
+.movie-page .page-item.active .page-link {
     font-weight: 900;
     border: 2px solid #eee;
 }
@@ -195,7 +195,7 @@
         font-size: 22px;
     }
 
-    .movie-page.sort-options {
+    .movie-page .sort-options {
         font-size: 14px;
     }
 

@@ -3,6 +3,8 @@ import { useMoviesByLanguageQuery } from '../../hooks/useMoviesByLanguage';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import Spinner from '../../common/Spinner/Spinner';
 import ReactPaginate from 'react-paginate';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import './MoviesByLanguagePage.style.css';
 
 const MoviesByLanguagePage = () => {
@@ -60,20 +62,22 @@ const MoviesByLanguagePage = () => {
     <div className="movies-by-language-page">
       <h2 className="page-title">언어별로 찾아보기</h2>
       <div className="filters">
-        <label htmlFor="language-select">언어: </label>
-        <select id="language-select" value={selectedLanguage} onChange={handleLanguageChange}>
-          {languages.map((lang) => (
-            <option key={lang.code} value={lang.code}>
-              {lang.name}
-            </option>
-          ))}
-        </select>
+        <div className="select-container">
+          <select id="language-select" value={selectedLanguage} onChange={handleLanguageChange}>
+            {languages.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <label htmlFor="sort-select" style={{ marginLeft: '20px' }}>정렬 기준: </label>
-        <select id="sort-select" value={sortOrder} onChange={handleSortOrderChange}>
-          <option value="popularity.desc">인기순</option>
-          <option value="release_date.desc">최신순</option>
-        </select>
+        <div className="select-container">
+          <select id="sort-select" value={sortOrder} onChange={handleSortOrderChange}>
+            <option value="popularity.desc">인기순</option>
+            <option value="release_date.desc">최신순</option>
+          </select>
+        </div>
       </div>
 
       {isLoading ? (
@@ -93,15 +97,25 @@ const MoviesByLanguagePage = () => {
           </div>
           <div className="pagination">
             <ReactPaginate
-              previousLabel={'이전'}
-              nextLabel={'다음'}
-              breakLabel={'...'}
-              pageCount={totalPages}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
+              nextLabel={<FontAwesomeIcon icon={faChevronRight} className="page-arrow" />}
               onPageChange={handlePageClick}
-              containerClassName={'pagination'}
-              activeClassName={'active'}
+              pageRangeDisplayed={5}
+              marginPagesDisplayed={0}
+              pageCount={totalPages}
+              previousLabel={<FontAwesomeIcon icon={faChevronLeft} className="page-arrow" />}
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item"
+              previousLinkClassName="page-link"
+              nextClassName="page-item"
+              nextLinkClassName="page-link"
+              breakLabel="..."
+              breakClassName="page-item"
+              breakLinkClassName="page-link"
+              containerClassName="pagination"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+              forcePage={currentPage - 1}
             />
           </div>
         </>
