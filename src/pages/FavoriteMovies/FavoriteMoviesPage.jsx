@@ -20,7 +20,16 @@ const FavoriteMoviesPage = () => {
           ))}
         </div>
       ) : (
-        <p className="no-results">찜한 영화가 없습니다.</p>
+        <div className="empty-container">
+          <div className="empty-image-wrapper">
+            <img src='/img/empty-image.png' alt="Empty List" className="empty-image" />
+          </div>
+          <p className="empty-message">
+            아직 찜한 콘텐츠가 없습니다
+            <br />
+            <span>나중에 보고 싶은 콘텐츠를 찜해주세요!</span>
+          </p>
+        </div>
       )}
     </div>
   );

@@ -39,6 +39,45 @@
   margin-top: 20px;
 }
 
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.empty-image-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.empty-image {
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.empty-message {
+  font-size: 18px;
+  color: #eee;
+  line-height: 1.5;
+}
+
+.empty-message span {
+  font-size: 14px;
+  color: #aaa;
+  display: block;
+  margin-top: 10px;
+}
+
 @media (max-width: 1024px) {
   .favorite-movies-container {
     gap: 20px;
