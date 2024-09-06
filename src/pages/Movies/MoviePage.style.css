@@ -68,65 +68,68 @@
     border: 2px solid #eee;
 }
 
-.filter-section {
+.movie-container {
+    max-width: 1400px;
+    margin: 0 10px;
+    padding: 0 20px;
+}
+
+.movie-header {
     display: flex;
-    justify-content: flex-end;
-    margin: 0 110px 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 5px 0;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 20px auto;
+}
+
+.movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #eee;
+    margin: 0;
+    flex: 1;
+    /* 타이틀이 최대한 공간을 차지 */
 }
 
 .sort-options-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     position: relative;
-    display: inline-block;
-    width: auto;
+    flex-shrink: 0;
 }
 
 .sort-options-container::after {
     content: '▼';
+    /* 화살표 추가 */
     position: absolute;
     right: 10px;
-    top: 47%;
+    /* 화살표의 위치 */
+    top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
     color: #eee;
-    font-size: 15px;
+    font-size: 18px;
 }
 
-.movie-container {
-    padding: 0 20px;
+.sort-options {
+    padding: 5px 45px 5px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    color: #eee;
+    outline: none;
+    appearance: none;
 }
+
 
 .movie-list-section {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-}
-
-.movie-card {
-    flex: 0 0 auto;
-    width: 220px;
-    height: 330px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.movie-card:hover {
-    transform: scale(1.05);
-}
-
-
-.movie-title {
-    flex-basis: 100%;
-    margin: 0;
-    padding-left: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #eee;
 }
 
 .pagination {
@@ -181,114 +184,55 @@
 }
 
 @media (max-width: 1024px) {
-    .movie-card {
-        width: 200px;
-        height: 290px;
-    }
-
-    .search-input-container {
-        width: 80%;
-    }
-
-    .genre-section {
-        width: 80%;
+    .movie-header {
         padding: 0;
-        gap: 8px;
-    }
-
-    .genre-section button {
-        padding: 8px 14px;
-        max-width: 120px;
-        height: 35px;
     }
 
     .movie-title {
         font-size: 22px;
     }
 
-    .filter-section {
-        margin: 0 85px 20px 0;
+    .sort-options {
+        font-size: 14px;
+    }
+
+    .movie-card {
+        width: 200px;
+        height: 290px;
     }
 }
 
 @media (max-width: 768px) {
-    .movie-card {
-        width: 180px;
-        height: 270px;
-    }
-
-    .search-input-container {
-        width: 80%;
-    }
-
-    .genre-section {
-        gap: 8px;
-        width: 80%;
-    }
-
-    .genre-section button {
-        font-size: 15px;
-        padding: 8px 10px;
-        height: 35px;
+    .movie-header {
+        padding: 0;
     }
 
     .movie-title {
         font-size: 20px;
     }
-    
-    .filter-section {
-        margin: 0 95px 20px 0;
+
+    .sort-options {
+        font-size: 14px;
+    }
+
+    .movie-card {
+        width: 180px;
+        height: 270px;
     }
 }
 
 @media (max-width: 480px) {
-    .movie-card {
-        width: 160px;
-        height: 250px;
-    }
-
-    .search-input-container {
-        width: 80%;
-    }
-
-    .genre-section {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-        padding: 0;
-        width: 80%;
-    }
-
-    .genre-section button {
-        font-size: 14px;
-        padding: 5px 8px;
-        min-width: auto;
-        height: 30px;
-    }
 
     .movie-title {
-        font-size: large;
-    }
-
-    .pagination {
-        margin: 8px 0;
-    }
-
-    .page-item {
-        margin: 0 8px;
-    }
-
-    .page-link {
-        width: 25px;
-        height: 25px;
-        font-size: 15px;
-    }
-
-    .page-arrow {
         font-size: 18px;
     }
 
-    .filter-section {
-        margin: 0 40px 20px 0;
+    .sort-options-container {
+        flex: 0 1 auto;
+    }
+
+    .movie-card {
+        width: 160px;
+        height: 250px;
     }
 }

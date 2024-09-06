@@ -21,7 +21,6 @@ const MoviePage = () => {
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
-
   const { data: movies, isLoading, refetch, isError } = useSearchMovieQuery({
     keyword,
     genre: selectedGenre,
@@ -39,7 +38,7 @@ const MoviePage = () => {
     setSelectedGenre(genreId);
     setPage(1);
     setSortOrder('popular');
-    setQuery({ q: inputValue, genre: genreId, page: 1, sortOrder });
+    setQuery({ q: inputValue, genre: genreId, page: 1, sortOrder: 'popular' });
   };
 
   const handleShowAll = () => {
@@ -55,8 +54,9 @@ const MoviePage = () => {
 
   const handleSearch = () => {
     if (inputValue.trim()) {
-      setQuery({ q: inputValue, genre: selectedGenre, page: 1, sortOrder });
+      setQuery({ q: inputValue, genre: selectedGenre, page: 1, sortOrder: 'popular' });
       setPage(1);
+      setSortOrder('popular');
       setInputValue('');
       inputRef.current.blur();
     } else {
@@ -79,9 +79,6 @@ const MoviePage = () => {
   const filteredMovies = movies?.results?.filter((movie) =>
     selectedGenre ? movie.genre_ids.includes(Number(selectedGenre)) : true
   ) || [];
-
-
-
 
   const totalPages = movies?.total_pages || 1;
 
@@ -132,31 +129,36 @@ const MoviePage = () => {
           ))}
       </div>
 
-      {selectedGenre && (
-        <div className="filter-section">
-          <div className="sort-options-container">
-            <select
-              className="sort-options"
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-            >
-              <option value="popular">인기 높은 순</option>
-              <option value="least-popular">인기 낮은 순</option>
-              <option value="release">최신순</option>
-            </select>
-          </div>
-        </div>
-      )}
+
 
       {!isLoading && filteredMovies && filteredMovies.length === 0 && (
         <p className="no-results">검색 결과가 없습니다.</p>
       )}
 
       <div className="movie-container">
-        <div className="movie-list-section">
+
+
+        <div className="movie-header">
           {!keyword && !selectedGenre && (
             <h2 className="movie-title">지금 뜨고있는 영화</h2>
           )}
+          {(keyword || selectedGenre) && (
+            <div className="sort-options-container">
+              <select
+                className="sort-options"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                <option value="popular">인기순</option>
+                <option value="release">최신순</option>
+              </select>
+            </div>
+          )}
+
+        </div>
+
+
+        <div className="movie-list-section">
           {filteredMovies.map((movie) => (
             <div className="movie-card" key={movie.id}>
               <MovieCard movie={movie} />
