@@ -239,8 +239,8 @@ button[data-tooltip]:hover::after {
 
 .movie__genre {
     display: inline-block;
-    padding: 10px 20px;
-    margin: 2px;
+    padding: 10px 15px;
+    margin: 0;
     background-color: #333333;
     color: #eee;
     border-radius: 20px;
