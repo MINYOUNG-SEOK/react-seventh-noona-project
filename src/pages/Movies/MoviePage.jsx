@@ -132,6 +132,12 @@ const MoviePage = () => {
           ))}
       </div>
 
+   
+      {!isLoading && filteredMovies && filteredMovies.length === 0 && (
+        <p className="no-results">검색 결과가 없습니다.</p>
+      )}
+
+      <div className="movie-container">
       {(keyword || selectedGenre) && (
         <div className="filter-section">
           <div className="sort-options-container">
@@ -142,17 +148,11 @@ const MoviePage = () => {
             >
               <option value="popular">인기 높은 순</option>
               <option value="least-popular">인기 낮은 순</option>
-              <option value="release">개봉일 순</option>
+              <option value="release">최신순</option>
             </select>
           </div>
         </div>
       )}
-
-      {!isLoading && filteredMovies && filteredMovies.length === 0 && (
-        <p className="no-results">검색 결과가 없습니다.</p>
-      )}
-
-      <div className="movie-container">
         <div className="movie-list-section">
           {!keyword && !selectedGenre && (
             <h2 className="movie-title">지금 뜨고있는 영화</h2>
