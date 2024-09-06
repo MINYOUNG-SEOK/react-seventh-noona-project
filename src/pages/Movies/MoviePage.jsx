@@ -92,6 +92,7 @@ const MoviePage = () => {
 
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);
+    setPage(1);
   };
 
   const filteredMovies = sortedMovies.filter((movie) =>
