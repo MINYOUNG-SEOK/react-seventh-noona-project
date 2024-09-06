@@ -1,18 +1,20 @@
 .favorite-movies-page {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   overflow-x: hidden;
-  padding: 20px;
+  padding: 20px 0;
   margin-top: 70px;
   width: 100%;
 }
 
-.page-title {
-  font-size: 24px;
+.favorite-movies-page-title {
+  font-size: 26px;
   font-weight: bold;
-  color: #eee;
+  color: #fff;
   margin: 20px 0;
-  text-align: center;
+  padding-left: 20px;
+  text-align: left;
+  margin-bottom: 30px;
 }
 
 .favorite-movies-container {
@@ -21,7 +23,11 @@
   gap: 20px;
   justify-content: center;
   padding: 0 20px;
+  margin: 0 auto;
 }
+
+
+
 
 .no-results {
   display: flex;
@@ -35,30 +41,46 @@
 
 @media (max-width: 1024px) {
   .favorite-movies-container {
+    gap: 15px;
     padding: 0 10px;
   }
 
-  .page-title {
+  .favorite-movies-page-title {
     font-size: 22px;
+  }
+
+  .favorite-movies-page .movie-card {
+    width: 200px;
+    height: 290px;
   }
 }
 
 @media (max-width: 768px) {
   .favorite-movies-container {
-    gap: 15px;
+    gap: 10px;
   }
 
-  .page-title {
+  .favorite-movies-page-title {
     font-size: 20px;
+  }
+
+  .favorite-movies-page .movie-card {
+    width: 180px;
+    height: 270px;
   }
 }
 
 @media (max-width: 480px) {
   .favorite-movies-container {
-    gap: 10px;
+    gap: 8px;
   }
 
-  .page-title {
+  .favorite-movies-page-title {
     font-size: 18px;
+  }
+
+  .favorite-movies-page .movie-card {
+    width: 160px;
+    height: 250px;
   }
 }
