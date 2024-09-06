@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { useMoviesByLanguageQuery } from '../../hooks/useMoviesByLanguage';
-import MovieCard from '../../common/MovieCard/MovieCard'; 
-import Spinner from '../../common/Spinner/Spinner'; 
-import './MoviesByLanguagePage.style.css'; 
+import MovieCard from '../../common/MovieCard/MovieCard';
+import Spinner from '../../common/Spinner/Spinner';
+import ReactPaginate from 'react-paginate';
+import './MoviesByLanguagePage.style.css';
 
 const MoviesByLanguagePage = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('en'); 
-  const [sortOrder, setSortOrder] = useState('popularity.desc'); 
-  const { data: movies, isLoading, isError } = useMoviesByLanguageQuery(selectedLanguage, sortOrder);
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [sortOrder, setSortOrder] = useState('popularity.desc');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const { data: movies, isLoading, isError } = useMoviesByLanguageQuery(
+    selectedLanguage,
+    sortOrder,
+    currentPage
+  );
+
+  const totalPages = movies?.total_pages || 1;
 
   const languages = [
     { code: 'id', name: '인도네시아어' },
@@ -35,10 +44,16 @@ const MoviesByLanguagePage = () => {
 
   const handleLanguageChange = (e) => {
     setSelectedLanguage(e.target.value);
+    setCurrentPage(1);
   };
 
   const handleSortOrderChange = (e) => {
     setSortOrder(e.target.value);
+    setCurrentPage(1);
+  };
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected + 1);
   };
 
   return (
@@ -66,13 +81,30 @@ const MoviesByLanguagePage = () => {
       ) : isError ? (
         <p className="error-message">영화를 불러오는 중 오류가 발생했습니다.</p>
       ) : (
-        <div className="movies-grid">
-          {movies && movies.length > 0 ? (
-            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-          ) : (
-            <p className="no-results">검색 결과가 없습니다.</p>
-          )}
-        </div>
+        <>
+          <div className="movie-container">
+            <div className="movie-list-section">
+              {movies.results && movies.results.length > 0 ? (
+                movies.results.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+              ) : (
+                <p className="no-results">검색 결과가 없습니다.</p>
+              )}
+            </div>
+          </div>
+          <div className="pagination">
+            <ReactPaginate
+              previousLabel={'이전'}
+              nextLabel={'다음'}
+              breakLabel={'...'}
+              pageCount={totalPages}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={'pagination'}
+              activeClassName={'active'}
+            />
+          </div>
+        </>
       )}
     </div>
   );
