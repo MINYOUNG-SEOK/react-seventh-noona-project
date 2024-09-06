@@ -5,13 +5,13 @@ import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useMovieRatingQuery } from '../../hooks/useMovieRating';
 import { useMovieDetailsQuery } from '../../hooks/useMovieDetails';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPlus, faAngleDown, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
-    
     const navigate = useNavigate();
     const [isFirstClick, setIsFirstClick] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(false); 
     const imageUrl = `https://www.themoviedb.org/t/p/original${movie?.poster_path}`;
 
     const { data: genres = [] } = useMovieGenreQuery();
@@ -41,6 +41,9 @@ const MovieCard = ({ movie }) => {
 
         checkIfMobile();
         window.addEventListener('resize', checkIfMobile);
+
+        const savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || [];
+        setIsFavorite(savedMovies.some(savedMovie => savedMovie.id === movie.id));
 
         return () => {
             window.removeEventListener('resize', checkIfMobile);
@@ -80,19 +83,27 @@ const MovieCard = ({ movie }) => {
         e.target.src = "/img/no-image.png";
         e.target.style.width = "100%";
         e.target.style.height = "100%";
-    e.target.style.display = "block";
-    e.target.style.padding = "30px 0"; 
+        e.target.style.display = "block";
+        e.target.style.padding = "30px 0";
     }
 
-    const saveMovieToFavorites = (movie) => {
+    const toggleFavorite = (movie) => {
         const savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || [];
-        if (!savedMovies.some(savedMovie => savedMovie.id === movie.id)) {
+        if (isFavorite) {
+            const updatedMovies = savedMovies.filter(savedMovie => savedMovie.id !== movie.id);
+            localStorage.setItem('savedMovies', JSON.stringify(updatedMovies));
+            setIsFavorite(false);
+            alert('찜 리스트에서 삭제되었습니다.');
+
+            if (window.location.pathname === '/favorite-movies') {
+                window.location.reload();
+            }
+        } else {
             savedMovies.push(movie);
-            localStorage.setItem('savedMovies',JSON.stringify(savedMovies));
-            alert('찜 리스트에 추가되었습니다.')
-        }else {
-            alert('이 영화는 이미 찜 리스트에 있습니다.');
-          }
+            localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+            setIsFavorite(true);
+            alert('찜 리스트에 추가되었습니다.');
+        }
     };
 
     const ratingClass = {
@@ -143,14 +154,14 @@ const MovieCard = ({ movie }) => {
                                 </button>
                                 <button
                                     className="add-button"
-                                    aria-label="Add to List"
-                                    data-tooltip="찜한 리스트에 추가"
+                                    aria-label={isFavorite ? 'Remove from List' : 'Add to List'}
+                                    data-tooltip={isFavorite ? '내가 찜한 리스트에서 삭제' : '찜한 리스트에 추가'}
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        saveMovieToFavorites(movie);
-                                      }}
+                                        toggleFavorite(movie);
+                                    }}
                                 >
-                                    <FontAwesomeIcon icon={faPlus} />
+                                    <FontAwesomeIcon icon={isFavorite ? faMinus : faPlus} />
                                 </button>
                             </div>
                             <button
