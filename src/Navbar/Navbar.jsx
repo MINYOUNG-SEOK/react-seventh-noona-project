@@ -41,6 +41,11 @@ const Navbar = () => {
     }
   };
 
+  const handleCategoryClick = () => {
+    setShowMenu(false);
+  };
+
+
   const isMoviePage = location.pathname === '/movies';
 
   return (
@@ -64,7 +69,7 @@ const Navbar = () => {
 
       <div className={`category__area ${showMenu ? 'show' : ''}`}>
         {categories.map((category, index) => (
-          <a key={index} href={category.href}>
+          <a key={index} href={category.href} onClick={handleCategoryClick}>
             {category.label}
           </a>
         ))}
