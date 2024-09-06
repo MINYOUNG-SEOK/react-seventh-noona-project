@@ -132,7 +132,7 @@ const MoviePage = () => {
           ))}
       </div>
 
-      {(keyword || selectedGenre) && (
+      {selectedGenre && (
         <div className="filter-section">
           <div className="sort-options-container">
             <select
