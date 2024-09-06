@@ -7,7 +7,6 @@ const fetchMovieDetails = async (movieId) => {
         const response = await api.get(`/movie/${movieId}`, {
             params: { language: 'ko-KR' },
         });
-        console.log('Fetched movie details:', response.data); // 콘솔 로그 추가
         return response.data;
     } catch (error) {
         console.error('Error fetching movie details:', error);
