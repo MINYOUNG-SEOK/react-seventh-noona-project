@@ -4,6 +4,7 @@ import Navbar from "./Navbar/Navbar";
 import Homepage from "./pages/Homepage/Homepage";
 import MoviePage from "./pages/Movies/MoviePage";
 import FavoriteMoviesPage from './pages/FavoriteMovies/FavoriteMoviesPage'; 
+import MoviesByLanguagePage from './pages/MoviesByLanguage/MoviesByLanguagePage'; 
 import MovieDetailPage from "./pages/MovieDetail/MovieDetailPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path=":id" element={<MovieDetailPage />} />
         </Route>
         <Route path="favorite-movies" element={<FavoriteMoviesPage />}/>
+        <Route path="languages" element={<MoviesByLanguagePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
