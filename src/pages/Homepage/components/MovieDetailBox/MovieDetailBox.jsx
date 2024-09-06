@@ -16,6 +16,7 @@ const MovieDetailBox = ({ movieId }) => {
     const director = credits?.crew?.find((member) => member.job === 'Director')?.name || '감독 정보 없음';
     const cast = credits?.cast?.slice(0, 5).map((actor) => actor.name).join(', ') || '출연진 정보 없음';
     const genres = movie?.genres ?? [];
+    const budget = movie?.budget ? `$${movie.budget.toLocaleString()}` : '예산 정보 없음';
 
     return (
         <div className="movie-detail-box">
@@ -27,6 +28,8 @@ const MovieDetailBox = ({ movieId }) => {
                     ? genres.map((genre) => <span key={genre.id} className="genre-tag">#{genre.name}</span>)
                     : '장르 정보 없음'}
             </div>
+            <h4>예산</h4>
+            <p>{budget}</p>
             <h4>출연진</h4>
             <p>{cast}</p>
             <h4>감독</h4>
