@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useSearchParams, useNavigate } from 'react-router-dom';
@@ -33,6 +33,20 @@ const MoviePage = () => {
   useEffect(() => {
     refetch();
   }, [keyword, selectedGenre, page, sortOrder, refetch]);
+
+  const sortedMovies = useMemo(() => {
+    if (!movies || !movies.results) return [];
+
+    switch (sortOrder) {
+      case 'release':
+        return [...movies.results].sort(
+          (a, b) => new Date(b.release_date) - new Date(a.release_date)
+        );
+      case 'popular':
+      default:
+        return [...movies.results].sort((a, b) => b.popularity - a.popularity);
+    }
+  }, [movies, sortOrder]);
 
   const handleGenreClick = (genreId) => {
     setSelectedGenre(genreId);
@@ -76,9 +90,13 @@ const MoviePage = () => {
     }
   };
 
-  const filteredMovies = movies?.results?.filter((movie) =>
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+  };
+
+  const filteredMovies = sortedMovies.filter((movie) =>
     selectedGenre ? movie.genre_ids.includes(Number(selectedGenre)) : true
-  ) || [];
+  );
 
   const totalPages = movies?.total_pages || 1;
 
@@ -129,34 +147,28 @@ const MoviePage = () => {
           ))}
       </div>
 
-
-
-      {!isLoading && filteredMovies && filteredMovies.length === 0 && (
+      {!isLoading && filteredMovies.length === 0 && (
         <p className="no-results">검색 결과가 없습니다.</p>
       )}
 
       <div className="movie-container">
-
-
         <div className="movie-header">
           {!keyword && !selectedGenre && (
             <h2 className="movie-title">지금 뜨고있는 영화</h2>
           )}
-          {(keyword || selectedGenre) && (
+          {(filteredMovies.length > 0 && (keyword || selectedGenre)) && (
             <div className="sort-options-container">
               <select
                 className="sort-options"
                 value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
+                onChange={handleSortChange}
               >
                 <option value="popular">인기순</option>
                 <option value="release">최신순</option>
               </select>
             </div>
           )}
-
         </div>
-
 
         <div className="movie-list-section">
           {filteredMovies.map((movie) => (

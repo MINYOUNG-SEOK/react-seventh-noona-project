@@ -90,7 +90,6 @@
     color: #eee;
     margin: 0;
     flex: 1;
-    /* 타이틀이 최대한 공간을 차지 */
 }
 
 .sort-options-container {
@@ -103,10 +102,8 @@
 
 .sort-options-container::after {
     content: '▼';
-    /* 화살표 추가 */
     position: absolute;
     right: 10px;
-    /* 화살표의 위치 */
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -115,13 +112,17 @@
 }
 
 .sort-options {
-    padding: 5px 45px 5px 20px;
+    width: 110px;
+    max-width: 110px;
+    padding: 10px 35px 5px 20px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
     color: #eee;
     outline: none;
     appearance: none;
+    background-color: #333;
+    box-sizing: border-box;
 }
 
 
