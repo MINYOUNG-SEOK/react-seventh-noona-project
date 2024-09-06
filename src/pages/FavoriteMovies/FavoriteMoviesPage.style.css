@@ -2,13 +2,13 @@
   max-width: 1400px;
   margin: 0 auto;
   overflow-x: hidden;
-  padding: 20px 0;
+  padding: 20px;
   margin-top: 70px;
   width: 100%;
 }
 
 .favorite-movies-page-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
   margin: 20px 0;
@@ -26,10 +26,7 @@
   margin: 0 auto;
 }
 
-
-
-
-.no-results {
+.favorite-movies-page .no-results {
   display: flex;
   justify-content: center;
   align-items: center;

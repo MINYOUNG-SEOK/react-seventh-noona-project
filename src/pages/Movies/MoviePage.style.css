@@ -4,20 +4,20 @@
     overflow-x: hidden;
 }
 
-.search-bar {
+.movie-page .search-bar {
     display: flex;
     justify-content: center;
     margin: 120px 0 30px 0;
 }
 
-.search-input-container {
+.movie-page .search-input-container {
     display: flex;
     position: relative;
     max-width: 600px;
     width: 100%;
 }
 
-.search-input-container input {
+.movie-page .search-input-container input {
     width: 100%;
     padding: 13px;
     font-size: 15px;
@@ -25,7 +25,7 @@
     border-radius: 10px;
 }
 
-.input-icon {
+.movie-page .input-icon {
     font-size: 20px;
     color: #333;
     position: absolute;
@@ -68,13 +68,13 @@
     border: 2px solid #eee;
 }
 
-.movie-container {
+.movie-page .movie-container {
     max-width: 1400px;
     margin: 0 10px;
     padding: 0 20px;
 }
 
-.movie-header {
+.movie-page .movie-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,7 +92,7 @@
     flex: 1;
 }
 
-.sort-options-container {
+.movie-page .sort-options-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -100,10 +100,10 @@
     flex-shrink: 0;
 }
 
-.sort-options-container::after {
+.movie-page .sort-options-container::after {
     content: '▼';
     position: absolute;
-    right: 10px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -111,29 +111,29 @@
     font-size: 18px;
 }
 
-.sort-options {
+.movie-page .sort-options {
     width: 110px;
     max-width: 110px;
-    padding: 10px 35px 5px 20px;
+    padding: 10px 40px 10px 20px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
     color: #eee;
     outline: none;
     appearance: none;
-    background-color: #333;
     box-sizing: border-box;
+    box-shadow: none;
+
 }
 
-
-.movie-list-section {
+.movie-page .movie-list-section {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.pagination {
+.movie-page .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,11 +142,11 @@
     margin: 20px 0;
 }
 
-.page-item {
+.movie-page .page-item {
     margin: 0 10px;
 }
 
-.page-link {
+.movie-page .page-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,20 +161,20 @@
     transition: color 0.3s;
 }
 
-.page-arrow {
+.movie-page .page-arrow {
     font-size: 25px;
 }
 
-.page-link:hover {
+.movie-page .page-link:hover {
     cursor: pointer;
 }
 
-.page-item.active .page-link {
+.movie-page.page-item.active .page-link {
     font-weight: 900;
     border: 2px solid #eee;
 }
 
-.no-results {
+.movie-page .no-results {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,38 +185,38 @@
 }
 
 @media (max-width: 1024px) {
-    .movie-header {
+    .movie-page .movie-header {
         padding: 0;
     }
 
-    .movie-title {
+    .movie-page .movie-title {
         font-size: 22px;
     }
 
-    .sort-options {
+    .movie-page.sort-options {
         font-size: 14px;
     }
 
-    .movie-card {
+    .movie-page .movie-card {
         width: 200px;
         height: 290px;
     }
 }
 
 @media (max-width: 768px) {
-    .movie-header {
+    .movie-page .movie-header {
         padding: 0;
     }
 
-    .movie-title {
+    .movie-page .movie-title {
         font-size: 20px;
     }
 
-    .sort-options {
+    .movie-page .sort-options {
         font-size: 14px;
     }
 
-    .movie-card {
+    .movie-page .movie-card {
         width: 180px;
         height: 270px;
     }
@@ -224,15 +224,15 @@
 
 @media (max-width: 480px) {
 
-    .movie-title {
+    .movie-page .movie-title {
         font-size: 18px;
     }
 
-    .sort-options-container {
+    .movie-page .sort-options-container {
         flex: 0 1 auto;
     }
 
-    .movie-card {
+    .movie-page .movie-card {
         width: 160px;
         height: 250px;
     }
