@@ -84,6 +84,17 @@ const MovieCard = ({ movie }) => {
     e.target.style.padding = "30px 0"; 
     }
 
+    const saveMovieToFavorites = (movie) => {
+        const savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || [];
+        if (!savedMovies.some(savedMovie => savedMovie.id === movie.id)) {
+            savedMovies.push(movie);
+            localStorage.setItem('savedMovies',JSON.stringify(savedMovies));
+            alert('찜 리스트에 추가되었습니다.')
+        }else {
+            alert('이 영화는 이미 찜 리스트에 있습니다.');
+          }
+    };
+
     const ratingClass = {
         'ALL': 'rating-all',
         'All': 'rating-all',
@@ -134,6 +145,10 @@ const MovieCard = ({ movie }) => {
                                     className="add-button"
                                     aria-label="Add to List"
                                     data-tooltip="찜한 리스트에 추가"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        saveMovieToFavorites(movie);
+                                      }}
                                 >
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
