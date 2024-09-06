@@ -71,8 +71,7 @@
 .filter-section {
     display: flex;
     justify-content: flex-end;
-    margin: 0 110px 40px 50px;
-
+    margin: 0 110px 20px 0;
 }
 
 .sort-options-container {
@@ -91,8 +90,6 @@
     color: #eee;
     font-size: 15px;
 }
-
-
 
 .movie-container {
     padding: 0 20px;
@@ -208,6 +205,10 @@
     .movie-title {
         font-size: 22px;
     }
+
+    .filter-section {
+        margin: 0 85px 20px 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -233,6 +234,10 @@
 
     .movie-title {
         font-size: 20px;
+    }
+    
+    .filter-section {
+        margin: 0 95px 20px 0;
     }
 }
 
@@ -281,5 +286,9 @@
 
     .page-arrow {
         font-size: 18px;
+    }
+
+    .filter-section {
+        margin: 0 40px 20px 0;
     }
 }
