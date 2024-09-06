@@ -93,17 +93,22 @@
 }
 
 .movie-page .sort-options-container {
-    width: 100%;
+    position: relative;
     display: flex;
     justify-content: flex-end;
-    position: relative;
-    flex-shrink: 0;
+    /* 오른쪽 정렬 */
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: auto;
+    /* 왼쪽 마진을 추가하여 오른쪽으로 이동 */
+    margin-right: 10px;
 }
 
 .movie-page .sort-options-container::after {
     content: '▼';
     position: absolute;
-    right: 25px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -112,17 +117,19 @@
 }
 
 .movie-page .sort-options {
+    padding: 10px 30px 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
     width: 110px;
     max-width: 110px;
-    padding: 10px 30px 10px 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    color: #eee;
-    outline: none;
-    appearance: none;
-    box-sizing: border-box;
-    box-shadow: none;
 }
 
 .movie-page .movie-list-section {

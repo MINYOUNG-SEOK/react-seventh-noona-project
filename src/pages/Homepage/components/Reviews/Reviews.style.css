@@ -41,16 +41,20 @@
 }
 
 .sort-options {
-    padding: 6px 30px 6px 8px;
-    border-radius: 5px;
+    padding: 10px 30px 10px 15px;
+    /* 언어 정렬 박스와 동일한 패딩 */
+    border-radius: 10px;
+    /* 둥근 모서리 */
     background-color: #000;
     color: #fff;
     cursor: pointer;
     outline: none;
-    border: 1px solid #999;
+    border: none;
     font-size: 16px;
     font-weight: bold;
     appearance: none;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .sort-options:focus {
@@ -66,18 +70,24 @@
 .select-wrapper {
     position: relative;
     display: inline-block;
-    width: auto;
+    border: 1px solid #eee;
+    /* 테두리 추가 */
+    border-radius: 10px;
+    /* 둥근 모서리 */
+    overflow: hidden;
+    margin-right: 10px;
+    /* 여유 공간 추가 */
 }
 
 .select-wrapper::after {
     content: '▼';
     position: absolute;
-    right: 10px;
-    top: 47%;
+    right: 12px;
+    top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
     color: #eee;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .review {
