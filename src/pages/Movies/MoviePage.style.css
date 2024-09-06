@@ -68,6 +68,32 @@
     border: 2px solid #eee;
 }
 
+.filter-section {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 110px 40px 50px;
+
+}
+
+.sort-options-container {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+.sort-options-container::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 47%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #eee;
+    font-size: 15px;
+}
+
+
+
 .movie-container {
     padding: 0 20px;
 }
