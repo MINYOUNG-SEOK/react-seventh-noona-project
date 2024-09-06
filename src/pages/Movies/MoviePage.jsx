@@ -132,12 +132,6 @@ const MoviePage = () => {
           ))}
       </div>
 
-   
-      {!isLoading && filteredMovies && filteredMovies.length === 0 && (
-        <p className="no-results">검색 결과가 없습니다.</p>
-      )}
-
-      <div className="movie-container">
       {(keyword || selectedGenre) && (
         <div className="filter-section">
           <div className="sort-options-container">
@@ -153,6 +147,12 @@ const MoviePage = () => {
           </div>
         </div>
       )}
+
+      {!isLoading && filteredMovies && filteredMovies.length === 0 && (
+        <p className="no-results">검색 결과가 없습니다.</p>
+      )}
+
+      <div className="movie-container">
         <div className="movie-list-section">
           {!keyword && !selectedGenre && (
             <h2 className="movie-title">지금 뜨고있는 영화</h2>
