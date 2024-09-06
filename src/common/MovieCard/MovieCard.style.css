@@ -3,26 +3,21 @@
 }
 
 .movie__card {
-    width: 100%;
+    align-items: flex-start;
+    cursor: pointer;
+    display: flex;
     height: auto;
     max-width: 220px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    background-position: center;
-    background-size: cover;
+    transition: transform .3s ease;
+    width: 100%;
 }
 
 .movie__image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
     border-radius: 10px;
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
 }
 
 .movie__image[onError] {
@@ -36,21 +31,21 @@
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8) !important;
+    align-items: center;
+    background: #000c !important;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    height: 100%;
     justify-content: center;
-    box-sizing: border-box;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: opacity .3s ease;
+    width: 100%;
     z-index: 10;
-    padding: 10px 0;
 }
 
 .movie__card:hover .overlay,

@@ -73,9 +73,13 @@
 }
 
 .movies-by-language-page .movie-container {
-  max-width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 0px;
   margin: 0 auto;
-  padding: 0 20px;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -150,7 +154,7 @@
   }
 
   .movies-by-language-page .movie-list-section {
-    gap: 12px;
+    gap: 20px;
   }
 }
 
@@ -160,7 +164,7 @@
   }
 
   .movies-by-language-page .movie-list-section {
-    gap: 10px;
+    gap: 20px;
   }
 }
 
@@ -170,6 +174,6 @@
   }
 
   .movies-by-language-page .movie-list-section {
-    gap: 8px;
+    gap: 20px;
   }
 }
